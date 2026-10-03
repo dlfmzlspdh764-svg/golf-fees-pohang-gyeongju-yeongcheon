@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f5132">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="골프요금">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<title>포항·경주·영천 골프장 이용요금</title>
+<style>
+:root{--g:#0f5132;--g2:#198754;--bg:#f3f6f4;--card:#fff;--tx:#1b1f1d;--mu:#6b7570;--ln:#e3e8e5;--warn:#b54708;--warnbg:#fff4e5;--bad:#b42318;--badbg:#fdecea;--ok:#067647;--okbg:#e7f6ec;--live:#1d4ed8;--livebg:#eef4ff}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--tx);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;-webkit-text-size-adjust:100%}
+header{background:linear-gradient(135deg,#0f5132,#198754);color:#fff;padding:18px 16px 14px}
+header h1{margin:0;font-size:20px;letter-spacing:-.3px}
+header p{margin:6px 0 0;font-size:12.5px;opacity:.9;line-height:1.5}
+.upd{display:inline-block;margin-top:8px;background:rgba(255,255,255,.16);border-radius:999px;padding:4px 10px;font-size:12px}
+.bar{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--ln);padding:10px 12px 8px;box-shadow:0 2px 6px rgba(0,0,0,.04)}
+.row{display:flex;gap:6px;align-items:center;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+.row::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;border:1px solid var(--ln);background:#fff;color:var(--tx);border-radius:999px;padding:7px 13px;font-size:14px;cursor:pointer;white-space:nowrap}
+.chip.on{background:var(--g);border-color:var(--g);color:#fff;font-weight:600}
+.chip.date{padding:6px 10px;font-size:13px}
+.chip.date.we{color:#c0362c}
+.chip.date.on{color:#fff}
+.seg{display:inline-flex;border:1px solid var(--ln);border-radius:10px;overflow:hidden;flex:0 0 auto}
+.seg button{border:0;background:#fff;padding:7px 12px;font-size:14px;cursor:pointer;color:var(--tx)}
+.seg button.on{background:var(--g2);color:#fff;font-weight:600}
+select{flex:0 0 auto;border:1px solid var(--ln);border-radius:10px;padding:7px 8px;font-size:14px;background:#fff;color:var(--tx)}
+.lbl{font-size:12px;color:var(--mu);flex:0 0 auto;margin-right:2px}
+main{padding:10px 12px 30px;max-width:760px;margin:0 auto}
+.summary{font-size:12.5px;color:var(--mu);margin:4px 2px 10px;line-height:1.5}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:14px;margin-bottom:10px}
+.top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.name{font-size:17px;font-weight:700;letter-spacing:-.3px}
+.alias{font-size:12px;color:var(--mu);margin-top:2px}
+.tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.tag{font-size:11.5px;border-radius:6px;padding:2px 7px;background:#eef2ef;color:#35403a}
+.tag.city{background:#e6f0ff;color:#1e40af}
+.st{font-size:11.5px;border-radius:6px;padding:3px 7px;white-space:nowrap;font-weight:600}
+.st.verified{background:var(--okbg);color:var(--ok)}
+.st.stale{background:var(--warnbg);color:var(--warn)}
+.st.unverified{background:var(--badbg);color:var(--bad)}
+.price{margin-top:10px;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.price .big{font-size:22px;font-weight:800;color:var(--g);letter-spacing:-.5px}
+.price .unit{font-size:12.5px;color:var(--mu)}
+.price .na{font-size:16px;font-weight:700;color:var(--bad)}
+.sub{font-size:12.5px;color:var(--mu);margin-top:3px;line-height:1.5}
+.fees{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}
+.fee{background:#f7f9f8;border-radius:10px;padding:8px 10px}
+.fee b{display:block;font-size:12px;color:var(--mu);font-weight:500}
+.fee span{font-size:14.5px;font-weight:700}
+.fee small{display:block;font-size:11.5px;color:var(--mu);margin-top:2px;line-height:1.4}
+.live{margin-top:10px;background:var(--livebg);border-radius:10px;padding:9px 10px}
+.live h4{margin:0 0 6px;font-size:12.5px;color:var(--live);display:flex;justify-content:space-between;gap:6px}
+.live h4 small{font-weight:400;color:#51607a}
+.days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.day{background:#fff;border-radius:8px;text-align:center;padding:5px 2px;font-size:11px;line-height:1.35;border:1px solid transparent}
+.day.sel{border-color:var(--live);box-shadow:0 0 0 1px var(--live) inset}
+.day .d{color:#51607a}.day.we .d{color:#c0362c}
+.day .p{font-weight:700;font-size:12px;color:#111}
+.day .c{color:#7a869a;font-size:10.5px}
+.day.none .p{color:#9aa4b2;font-weight:500}
+.sel-live{margin-top:6px;font-size:13px;color:#1e3a8a}
+.sel-live b{font-size:16px}
+.warnbox{margin-top:8px;font-size:12.5px;background:var(--warnbg);color:var(--warn);border-radius:8px;padding:7px 9px;line-height:1.5}
+.errbox{margin-top:8px;font-size:12.5px;background:var(--badbg);color:var(--bad);border-radius:8px;padding:7px 9px;line-height:1.5}
+details{margin-top:8px}
+summary{font-size:13px;color:var(--g2);cursor:pointer;font-weight:600}
+details ul{margin:6px 0 0;padding-left:18px;font-size:12.5px;line-height:1.6;color:#333}
+.meta{font-size:11.5px;color:var(--mu);margin-top:8px;line-height:1.55;word-break:break-all}
+.meta a{color:var(--mu)}
+.acts{display:flex;gap:6px;margin-top:10px}
+.acts a{flex:1;text-align:center;text-decoration:none;border-radius:10px;padding:10px 4px;font-size:14px;font-weight:600;border:1px solid var(--ln);color:var(--tx);background:#fff}
+.acts a.call{background:var(--g);color:#fff;border-color:var(--g)}
+.acts a.book{background:#fff;color:var(--g);border-color:var(--g)}
+footer{max-width:760px;margin:0 auto;padding:4px 16px 40px;font-size:12px;color:var(--mu);line-height:1.7}
+footer h3{font-size:13px;color:var(--tx);margin:14px 0 4px}
+.empty{text-align:center;color:var(--mu);padding:40px 0}
+
+.tabs{position:sticky;top:0;z-index:6;display:flex;background:#fff;border-bottom:1px solid var(--ln)}
+.tabs button{flex:1;border:0;background:#fff;padding:12px 4px;font-size:15px;font-weight:600;color:var(--mu);cursor:pointer;border-bottom:3px solid transparent}
+.tabs button.on{color:var(--g);border-bottom-color:var(--g)}
+body.dash .bar,body.dash #listMain{display:none}
+body:not(.dash) #dash{display:none}
+.bar{top:47px}
+#dash{padding:10px 12px 20px;max-width:760px;margin:0 auto}
+.sec{background:#fff;border:1px solid var(--ln);border-radius:14px;padding:12px;margin-bottom:10px}
+.sec h3{margin:0 0 8px;font-size:15px;letter-spacing:-.3px;display:flex;justify-content:space-between;align-items:baseline;gap:6px}
+.sec h3 small{font-size:11.5px;color:var(--mu);font-weight:400}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.kpi{background:#fff;border:1px solid var(--ln);border-radius:14px;padding:11px 12px;min-width:0}
+.kpi b{display:block;font-size:11.5px;color:var(--mu);font-weight:500}
+.kpi .v{font-size:22px;font-weight:800;color:var(--g);letter-spacing:-.5px;margin-top:2px;white-space:nowrap}
+.kpi .v small{font-size:12px;font-weight:600;color:var(--mu);margin-left:2px}
+.kpi .s{font-size:11.5px;color:var(--mu);margin-top:2px;line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.kpi.hot{background:linear-gradient(135deg,#0f5132,#198754);border-color:#0f5132;color:#fff}
+.kpi.hot b,.kpi.hot .s,.kpi.hot .v small{color:rgba(255,255,255,.85)}
+.kpi.hot .v{color:#fff}
+.kpi .v.sm{font-size:15px;white-space:normal;line-height:1.3}
+.drow{margin:0 0 8px}
+.rk{display:flex;align-items:center;gap:8px;padding:9px 2px;border-top:1px solid var(--ln);cursor:pointer}
+.rk:first-child{border-top:0}
+.rk .n{flex:0 0 22px;height:22px;border-radius:50%;background:#eef2ef;color:#35403a;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.rk:first-child .n{background:#f5b301;color:#fff}
+.rk .m{flex:1;min-width:0}
+.rk .t{font-size:14.5px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rk .i{font-size:11.5px;color:var(--mu);margin-top:2px}
+.rk .pr{text-align:right;flex:0 0 auto}
+.rk .pr b{font-size:16px;color:var(--g);font-weight:800}
+.rk .pr div{font-size:11px;color:var(--mu)}
+.cb{display:inline-block;font-size:10.5px;border-radius:5px;padding:1px 5px;margin-right:4px;font-weight:600;vertical-align:1px}
+.cb.c포항{background:#e6f0ff;color:#1e40af}.cb.c경주{background:#fdf0e6;color:#9a3412}.cb.c영천{background:#f1e9fe;color:#6b21a8}
+.cities{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.city{background:#f7f9f8;border-radius:10px;padding:9px 8px;text-align:center}
+.city .cn{font-size:13px;font-weight:700}
+.city .cc{font-size:11px;color:var(--mu);margin:2px 0 5px}
+.city .mn{font-size:16px;font-weight:800;color:var(--g)}
+.city .av{font-size:11.5px;color:#35403a;margin-top:2px}
+.hm-wrap{overflow-x:auto;margin:0 -12px;padding:0 12px;-webkit-overflow-scrolling:touch}
+table.hm{border-collapse:separate;border-spacing:3px;font-size:12px;min-width:100%}
+.hm th{font-size:11px;font-weight:600;color:#51607a;padding:3px 2px;white-space:nowrap;text-align:center}
+.hm th.we{color:#c0362c}
+.hm th.cn,.hm td.cn{position:sticky;left:0;z-index:2;background:#fff;box-shadow:-4px 0 0 #fff,4px 0 0 #fff;text-align:left;font-size:12px;font-weight:600;max-width:108px;min-width:108px;line-height:1.25;word-break:keep-all;padding:2px 4px 2px 0;cursor:pointer}
+.hm td.cn .cb{display:block;width:max-content;margin:0 0 1px}
+.hm td.v{min-width:38px;height:30px;text-align:center;border-radius:6px;font-weight:700;color:#10241a;cursor:pointer}
+.hm td.v.na{background:#f1f3f2;color:#b0b8b4;font-weight:400}
+.legend{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--mu);margin-top:8px}
+.legend i{flex:1;height:8px;border-radius:4px;background:linear-gradient(90deg,hsl(130,55%,72%),hsl(60,75%,70%),hsl(0,70%,72%))}
+.chart text{font-family:inherit}
+.note{font-size:11.5px;color:var(--mu);line-height:1.5;margin-top:6px}
+.card.flash{animation:fl 1.6s ease}
+@keyframes fl{0%,40%{box-shadow:0 0 0 3px var(--g2)}100%{box-shadow:none}}
+@media (min-width:700px){.fees{grid-template-columns:repeat(4,1fr)}}
+</style>
+</head>
+<body class="dash">
+<header>
+  <h1>⛳ 포항·경주·영천 골프장 이용요금</h1>
+  <p>공식 홈페이지 요금표 + 예약 사이트 실시간 최저가(날짜별)를 한눈에 비교합니다.</p>
+  <span class="upd" id="upd">불러오는 중…</span>
+</header>
+
+<nav class="tabs" id="tabs"><button data-v="dash" class="on">📊 대시보드</button><button data-v="list">⛳ 골프장 목록</button></nav>
+
+<section id="dash">
+  <div class="kpis" id="kpis"></div>
+  <div class="row drow" id="dCity"></div>
+  <div class="sec"><h3>💰 최저가 TOP 5 <small id="topSub"></small></h3>
+    <div class="row drow" id="dDate"></div>
+    <div id="top5"></div></div>
+  <div class="sec"><h3>🏙️ 지역별 요약 <small id="citySub"></small></h3><div class="cities" id="cities"></div>
+    <div class="note">각 골프장의 18홀 최저가 기준 · 단위 원 · 실시간 가격이 있는 골프장만 계산</div></div>
+  <div class="sec"><h3>📈 날짜별 전체 최저가 <small>18홀·1인</small></h3><div id="chart"></div></div>
+  <div class="sec"><h3>🗓️ 7일 요금 히트맵 <small>단위 만원 · 칸을 누르면 이동</small></h3>
+    <div class="hm-wrap"><table class="hm" id="hm"></table></div>
+    <div class="legend">저렴<i></i>비쌈</div>
+    <div class="note" id="hmNote"></div></div>
+</section>
+
+<div class="bar">
+  <div class="row" id="cityRow"></div>
+  <div class="row" style="margin-top:6px">
+    <div class="seg" id="modeSeg">
+      <button data-v="official" class="on">공식 요금표</button>
+      <button data-v="live">실시간 최저가</button>
+    </div>
+    <div class="seg" id="daySeg">
+      <button data-v="weekday" class="on">평일</button>
+      <button data-v="weekend">주말·공휴일</button>
+    </div>
+    <select id="sort" aria-label="정렬">
+      <option value="asc">낮은 가격순</option>
+      <option value="desc">높은 가격순</option>
+      <option value="name">이름순</option>
+    </select>
+  </div>
+  <div class="row" id="dateRow" style="margin-top:6px;display:none"></div>
+</div>
+
+<main id="listMain">
+  <div class="summary" id="summary"></div>
+  <div id="list"></div>
+</main>
+
+<footer id="foot"></footer>
+
+<script>
+const EMBEDDED = {"meta": {"title": "포항·경주·영천 골프장 이용요금", "verified_at": "2026-09-27T19:00:00+09:00", "course_list_source": "문화체육관광부 「전국 골프장 현황」(2024-12-31 기준) 및 경상북도 골프장 목록, 각 골프장 공식 홈페이지로 교차 확인", "notes": ["공식 요금은 각 골프장 홈페이지 요금안내 페이지에서 직접 확인한 값입니다(1인 그린피, 원).", "실시간 최저가는 골프존 티스캐너 공개 티타임 목록(로그인 불필요)에서 자동 수집한 값으로, 예약 시점·상품 조건에 따라 달라질 수 있습니다.", "확인 필요 표시는 공식 요금을 확인하지 못한 경우이며, 추정값을 넣지 않았습니다."], "generated_at": "2026-10-03T09:34:27+09:00"}, "courses": [{"id": "pohangcc", "name": "포항CC", "aliases": ["포항컨트리클럽"], "city": "포항", "holes": 18, "type": "대중제", "address": "경북 포항시 북구 송라면 동해대로2751번길 126", "phone": "054-230-2000", "website": "https://pohangcc.com/", "booking_url": "https://pohangcc.com/", "teescanner_seq": 178, "official": {"status": "stale", "source_url": "https://pohangcc.com/swp/clubCharge", "period": "홈페이지 게시표: 8월 그린피 할인안내 (8.1~8.31) — 9월 27일 현재도 이 표가 게시됨", "basis": "18홀", "weekday": {"min": 90000, "max": 110000}, "weekend": {"min": 100000, "max": 160000}, "cart": null, "caddie": null, "cart_note": "카트비 별도(금액 미표기)", "caddie_note": "캐디피 별도(금액 미표기)", "rows": ["월~목: 1·2부 110,000 / 3부 90,000", "금: 1·2부 110,000 / 3부 110,000", "토·공휴일: 1부(~07:28) 150,000 / 1부 후반·2부 160,000 / 3부 110,000", "일: 1부(~07:28) 150,000 / 1부 후반·2부 160,000 / 3부 100,000"], "note": "게시된 표가 8월 적용분이라 현재 요금과 다를 수 있습니다."}, "monitor": {"url": "https://pohangcc.com/swp/clubCharge", "marker": "기준요금표"}}, {"id": "eastern", "name": "청하 이스턴CC", "aliases": ["청하이스턴CC", "이스턴CC"], "city": "포항", "holes": 9, "type": "대중제", "address": "경북 포항시 북구 청하면 용산길 94", "phone": "054-253-0070", "website": "https://www.easterncc.co.kr/", "booking_url": "https://www.easterncc.co.kr/mobile/", "teescanner_seq": null, "official": {"status": "verified", "source_url": "https://www.easterncc.co.kr/mobile/info/charge.asp", "period": "주간 할인요금 2026.09.28(월) ~ 10.04(일)", "valid_from": "2026-09-28", "valid_to": "2026-10-04", "basis": "18홀(9홀 2회)", "weekday": {"min": 65000, "max": 95000}, "weekend": {"min": 75000, "max": 120000}, "cart": 80000, "cart_note": "팀당 18홀 80,000 / 9홀 40,000", "caddie": 0, "caddie_note": "전면 노캐디", "rows": ["월~목: 1부 75,000~85,000 / 2부 95,000 / 3부 65,000", "금: 1부 75,000~85,000 / 2부 95,000 / 3부 75,000", "토·공휴일: 1부 95,000~110,000 / 2부 120,000 / 3부 85,000", "일: 1부 95,000~110,000 / 2부 115,000 / 3부 75,000", "정상요금(2024.10.12~): 평일 80,000~105,000 / 주말 90,000~132,000"], "note": "요금표는 홈페이지 이미지로 게시되며 매주 갱신됩니다.", "image_url": "https://www.easterncc.co.kr/uploads/20260923/20260923105147.jpg"}, "monitor": {"url": "https://www.easterncc.co.kr/mobile/info/charge.asp", "marker": "할인요금안내"}}, {"id": "oceanhills_pohang", "name": "오션힐스포항CC", "aliases": ["오션힐스 포항"], "city": "포항", "holes": 27, "type": "회원제(일부 대중제)", "address": "경북 포항시 북구 송라면 대전길 72", "phone": "054-262-9988", "website": "https://www.oceanhills.com/", "booking_url": "https://www.oceanhills.com/", "teescanner_seq": 122, "official": {"status": "verified", "source_url": "https://oceanhills.com/use-information/fee", "period": "상시 요금표(공식 홈페이지 요금안내 > 오션힐스포항)", "basis": "18홀 비회원", "weekday": {"min": 180000, "max": 180000}, "weekend": {"min": 230000, "max": 230000}, "cart": 100000, "cart_note": "팀당", "caddie": 140000, "caddie_note": "팀당 (3부 드라이빙캐디 배정 시 100,000)", "rows": ["비회원(웹회원) 주중 180,000 / 주말 230,000"], "note": "회원제 골프장: 비회원 요금 기준."}, "monitor": null}, {"id": "silla", "name": "경주신라CC", "aliases": ["신라CC"], "city": "경주", "holes": 36, "type": "회원제", "address": "경북 경주시 보문로 319", "phone": "054-740-7114", "website": "https://www.sillacc.co.kr/", "booking_url": "https://www.sillacc.co.kr/", "teescanner_seq": 312, "official": {"status": "verified", "source_url": "https://www.sillacc.co.kr/swp/charge", "period": "상시 입장요금표", "basis": "18홀 비회원", "weekday": {"min": 160000, "max": 160000}, "weekend": {"min": 190000, "max": 190000}, "cart": 80000, "cart_note": "유도카트 팀당 (셀프카트 1·2부 120,000 / 3부 100,000)", "caddie": 140000, "caddie_note": "팀당 18홀 기준", "rows": ["비회원 18홀 평일 160,000 / 주말 190,000", "비회원 9홀 평일 90,000 / 주말 105,000"], "note": "홈페이지 안내: 비회원 그린피는 공지사항(월별 조정) 참조."}, "monitor": {"url": "https://www.sillacc.co.kr/swp/charge", "marker": "입장요금"}}, {"id": "seorabol", "name": "서라벌GC", "aliases": ["경주서라벌CC", "서라벌골프클럽"], "city": "경주", "holes": 45, "type": "대중제", "address": "경북 경주시 외동읍 내외로 577-189", "phone": "054-773-7000", "website": "https://www.seorabolgc.co.kr/", "booking_url": "https://www.seorabolgc.co.kr/", "teescanner_seq": 196, "official": {"status": "unverified", "source_url": "https://www.seorabolgc.co.kr/", "note": "공식 홈페이지가 수집 서버(해외망)에서 응답하지 않아 요금표를 확인하지 못했습니다."}, "monitor": null}, {"id": "kyongjucc", "name": "경주CC", "aliases": ["경주컨트리클럽"], "city": "경주", "holes": 27, "type": "대중제", "address": "경북 경주시 보문로 182-98", "phone": "054-778-8900", "website": "https://www.kyongjugolf.co.kr/", "booking_url": "https://www.kyongjugolf.co.kr/", "teescanner_seq": 313, "official": {"status": "unverified", "source_url": "https://www.kyongjugolf.co.kr/Mobile/guide/Fees.asp", "note": "공식 홈페이지가 해외 접속을 차단(CloudFront 국가 차단)하여 요금표를 확인하지 못했습니다."}, "monitor": null}, {"id": "honors", "name": "강동 디아너스CC", "aliases": ["디아너스CC", "구 블루원 디아너스"], "city": "경주", "holes": 27, "type": "회원제", "address": "경북 경주시 보불로 391", "phone": "1588-0776", "website": "https://gj.kangdongcnl.com/", "booking_url": "https://gj.kangdongcnl.com/", "teescanner_seq": 253, "official": {"status": "verified", "source_url": "https://gj.kangdongcnl.com/content/03use/03_01.jsp", "period": "상시 이용요금표", "basis": "18홀 비회원", "weekday": {"min": 240000, "max": 240000}, "weekend": {"min": 270000, "max": 270000}, "cart": 100000, "cart_note": "1대 4인 기준", "caddie": 150000, "caddie_note": "A등급 150,000 / S등급 180,000 / 셀프(노캐디) 선택 가능", "rows": ["비회원 주중 240,000 / 주말·공휴일 270,000 (개별소비세 포함)"], "note": "스마트예약 이벤트 요금은 별도."}, "monitor": {"url": "https://gj.kangdongcnl.com/content/03use/03_01.jsp", "marker": "비회원"}}, {"id": "mauna", "name": "마우나오션CC", "aliases": ["마우나오션"], "city": "경주", "holes": 27, "type": "회원제 18홀 + 대중제 9홀", "address": "경북 경주시 양남면 동남로 982", "phone": "054-740-0678", "website": "https://www.mauna.co.kr/field/", "booking_url": "https://www.mauna.co.kr/field/", "teescanner_seq": 231, "official": {"status": "verified", "source_url": "https://www.mauna.co.kr/field/swp/charge", "period": "상시 이용요금표", "basis": "회원제 18홀 비회원", "weekday": {"min": 185000, "max": 185000}, "weekend": {"min": 210000, "max": 210000}, "cart": 90000, "cart_note": "팀당 18홀 (9홀 45,000)", "caddie": 140000, "caddie_note": "팀당 18홀", "rows": ["회원제 18홀 비회원 주중 185,000 / 주말 210,000", "대중제 9홀 주중 92,500 / 주말 105,000"], "note": ""}, "monitor": {"url": "https://www.mauna.co.kr/field/swp/charge", "marker": "비회원"}}, {"id": "hillsky", "name": "힐스카이CC", "aliases": ["구 루나엑스CC"], "city": "경주", "holes": 24, "type": "대중제", "address": "경북 경주시 천북면 천강로 412-299", "phone": "1811-0770", "website": "https://www.hillskycc.com/", "booking_url": "https://www.hillskycc.com/", "teescanner_seq": 114090, "official": {"status": "verified", "source_url": "https://www.hillskycc.com/main/contents.do?idx=5871", "period": "2026.09.14 ~ 09.30", "valid_from": "2026-09-14", "valid_to": "2026-09-30", "basis": "18홀 (표기 '원~' 최저 기준)", "weekday": {"min": 85000, "max": 120000}, "weekend": {"min": 80000, "max": 155000}, "cart": 100000, "cart_note": "팀당 18홀 (6홀 40,000 / 12홀 70,000 / 24홀 130,000)", "caddie": 0, "caddie_note": "노캐디 셀프 라운드", "rows": ["월~목: 1부 100,000~110,000 / 2부 120,000 / 3부 85,000~90,000", "금: 1부 100,000~110,000 / 2부 120,000 / 3부 100,000", "토: 1부 145,000~150,000 / 2부 150,000~155,000 / 3부 110,000~115,000", "일: 1부 145,000~150,000 / 2부 150,000 / 3부 80,000", "10월(10.1~10.31): 평일 60,000~120,000 / 주말 70,000~155,000"], "note": "요금은 계절·시간대별 차등(표기 금액부터)."}, "monitor": {"url": "https://www.hillskycc.com/main/contents.do?idx=5871", "marker": "그린피 안내", "parser": "hillsky"}}, {"id": "gampo", "name": "골프존카운티 감포", "aliases": ["감포CC"], "city": "경주", "holes": 18, "type": "대중제", "address": "경북 경주시 감포읍 동해안로 1819-59", "phone": "054-777-9000", "website": "https://www.golfzoncounty.com/", "booking_url": "https://m.golfzoncounty.com/reserve/main?active=real", "teescanner_seq": 81, "official": {"status": "unverified", "source_url": "https://m.golfzoncounty.com/golfclub/resvGuide?golfclubSeq=1", "cart": 100000, "cart_note": "18홀 팀당 (공식 이용안내)", "caddie": 150000, "caddie_note": "팀당 1·2·3부 (공식 이용안내)", "note": "그린피는 날짜별 변동제로, 공식 티타임 목록은 로그인 후에만 조회됩니다. 아래 실시간 최저가를 참고하세요."}, "monitor": null}, {"id": "bomun", "name": "보문GC", "aliases": ["경주 보문골프클럽"], "city": "경주", "holes": 18, "type": "대중제", "address": "경북 경주시 보문로 182-14", "phone": "054-745-1680", "website": "https://golf.gtc.co.kr/", "booking_url": "https://golf.gtc.co.kr/", "teescanner_seq": 216, "official": {"status": "verified", "source_url": "https://golf.gtc.co.kr/content/info-greenfee.asp", "period": "2026.09.14 ~ 09.30", "valid_from": "2026-09-14", "valid_to": "2026-09-30", "basis": "18홀", "weekday": {"min": 75000, "max": 130000}, "weekend": {"min": 80000, "max": 160000}, "cart": 90000, "cart_note": "팀당", "caddie": 140000, "caddie_note": "팀당", "rows": ["월~목: 1부 100,000~120,000 / 2부 130,000 / 3부 75,000~85,000", "금: 1부 100,000~120,000 / 2부 130,000 / 3부 95,000~100,000", "토·공휴일: 1부 140,000~160,000 / 2부 160,000 / 3부 105,000~115,000", "일: 1부 140,000~160,000 / 2부 160,000 / 3부 80,000", "10.1~11.1: 평일 60,000~130,000 / 주말 70,000~160,000"], "note": "경북문화관광공사 운영."}, "monitor": {"url": "https://golf.gtc.co.kr/content/info-greenfee.asp", "marker": "시행일자", "parser": "bomun"}}, {"id": "easthill", "name": "이스트힐CC", "aliases": ["이스트힐컨트리클럽"], "city": "경주", "holes": 18, "type": "대중제", "address": "경북 경주시 양남면 외남로 1377", "phone": "054-775-1700", "website": "https://www.easthills.co.kr/", "booking_url": "https://www.easthills.co.kr/", "teescanner_seq": null, "official": {"status": "verified", "source_url": "https://www.easthills.co.kr/Guide/Fees.aspx", "period": "현재 이용요금(홈페이지 게시)", "basis": "18홀", "weekday": {"min": 110000, "max": 120000}, "weekend": {"min": 150000, "max": 160000}, "cart": 90000, "cart_note": "팀당", "caddie": 140000, "caddie_note": "팀당", "rows": ["1부(06:30~08:50) 평일 110,000 / 주말 150,000", "2부(11:34~14:20) 평일 120,000 / 주말 160,000"], "note": "겨울철 단부제(12/8~) 시 2부 요금만 운영."}, "monitor": {"url": "https://www.easthills.co.kr/Guide/Fees.aspx", "marker": "현재 이용 요금"}}, {"id": "garden", "name": "코오롱 가든 골프장", "aliases": ["가든골프클럽", "코오롱가든"], "city": "경주", "holes": 9, "type": "대중제", "address": "경북 경주시 불국로 289-17", "phone": "054-746-7900", "website": "https://www.kolongolf.com/", "booking_url": "https://www.kolongolf.com/reservation/golf", "teescanner_seq": 319, "official": {"status": "verified", "source_url": "https://www.kolongolf.com/board/boardDetail?boardCode=NOTICE&boardPostSeq=318", "period": "9월 3·4주 요금 2026.09.14 ~ 09.30", "valid_from": "2026-09-14", "valid_to": "2026-09-30", "basis": "9홀 비회원", "weekday": {"min": 49000, "max": 49000}, "weekend": {"min": 65000, "max": 65000}, "cart": null, "cart_note": "1인 9홀 8,000 / 18홀 14,000 (인원별 부과)", "caddie": null, "caddie_note": "공식 요금표에 캐디피 미표기", "rows": ["비회원 9홀: 주중 49,000 / 주말·공휴일 65,000", "온라인회원 9홀: 주중 33,000~37,000 / 주말 49,000~52,000", "10.1~10.11: 비회원 동일, 온라인회원 주중 34,000~39,000 / 주말 45,000~55,000", "18홀은 9홀 시간대별 요금을 각각 합산"], "note": "요금표는 공지사항 이미지로 게시(2주 단위)."}, "monitor": {"url": "https://www.kolongolf.com/", "marker": "요금"}}, {"id": "sunrich", "name": "선리치GC", "aliases": ["선리치골프클럽"], "city": "경주", "holes": 9, "type": "대중제", "address": "경북 경주시 안강읍 검단장골길 181-17", "phone": "054-777-3333", "website": "https://www.sunrichgc.com/", "booking_url": "https://www.sunrichgc.com/", "teescanner_seq": null, "official": {"status": "verified", "source_url": "https://www.sunrichgc.com/guide-info/use-guide", "period": "2026.09.01 ~ 종료 시까지", "basis": "18홀(9홀 2회)", "weekday": {"min": 55000, "max": 95000}, "weekend": {"min": 65000, "max": 110000}, "cart": 80000, "cart_note": "팀당 18홀 (9홀 40,000)", "caddie": 140000, "caddie_note": "하우스캐디 18홀 (인턴 100,000 / 드라이빙 90,000)", "rows": ["월~목: 조조 60,000 / 1부 70,000 / 2부 95,000 / 3부 70,000~80,000 / 4부 55,000", "금: 4부 65,000 (그 외 월~목과 동일)", "토·공휴일: 85,000~110,000 (4부 75,000)", "일: 85,000~110,000 (4부 65,000)", "9홀: 평일 50,000 / 주말 55,000"], "note": "VAT 포함."}, "monitor": {"url": "https://www.sunrichgc.com/guide-info/use-guide", "marker": "요금표"}}, {"id": "legend", "name": "안강레전드GC", "aliases": ["경주레전드골프클럽"], "city": "경주", "holes": 9, "type": "대중제", "address": "경북 경주시 안강읍 낙산길 85", "phone": "054-760-0707", "website": "https://www.legendgolf.co.kr/", "booking_url": "https://www.legendgolf.co.kr/", "teescanner_seq": 543, "official": {"status": "unverified", "source_url": "https://www.legendgolf.co.kr/Mobile/Guide/Fee.aspx", "note": "공식 홈페이지가 해외 접속을 차단(403)하여 요금표를 확인하지 못했습니다."}, "monitor": null}, {"id": "uri", "name": "우리GC", "aliases": ["우리골프클럽"], "city": "경주", "holes": 9, "type": "대중제", "address": "경북 경주시 양남면 동남로 972", "phone": "054-740-0800", "website": "https://www.urigolfclub.co.kr/", "booking_url": "https://www.urigolfclub.co.kr/", "teescanner_seq": 361, "official": {"status": "verified", "source_url": "https://www.urigolfclub.co.kr/Guide/Fee", "period": "현재 이용요금(홈페이지 게시)", "basis": "18홀(9홀 2회)", "weekday": {"min": 75000, "max": 100000}, "weekend": {"min": 100000, "max": 130000}, "cart": null, "cart_note": "1인 18홀 24,000 / 9홀 12,000 (인원별 부과)", "caddie": 140000, "caddie_note": "팀당 18홀 (9홀 70,000)", "rows": ["18홀: 주중 75,000~100,000 / 주말 100,000~130,000", "9홀: 주중 35,000~50,000 / 주말 50,000~65,000"], "note": "시간대별 차등, VAT 포함."}, "monitor": {"url": "https://www.urigolfclub.co.kr/Guide/Fee", "marker": "이용요금"}}, {"id": "oceanhills_yc", "name": "오션힐스영천CC", "aliases": ["영천CC"], "city": "영천", "holes": 27, "type": "회원제", "address": "경북 영천시 임고면 방목길 34-2", "phone": "054-330-9000", "website": "https://www.oceanhills.com/", "booking_url": "https://www.oceanhills.com/", "teescanner_seq": 414, "official": {"status": "verified", "source_url": "https://oceanhills.com/use-information/fee", "period": "상시 요금표(공식 홈페이지 요금안내 > 오션힐스영천)", "basis": "18홀 비회원", "weekday": {"min": 180000, "max": 180000}, "weekend": {"min": 220000, "max": 220000}, "cart": 100000, "cart_note": "팀당", "caddie": 150000, "caddie_note": "팀당", "rows": ["비회원 주중 180,000 / 주말 220,000"], "note": "회원제 골프장: 비회원 요금 기준."}, "monitor": null}, {"id": "ophel", "name": "영천 오펠GC", "aliases": ["오펠골프클럽", "영천오펠CC"], "city": "영천", "holes": 27, "type": "회원제", "address": "경북 영천시 고경면 호국로 1221-24", "phone": "054-333-2100", "website": "https://www.ophelgc.com/", "booking_url": "https://www.ophelgc.com/", "teescanner_seq": 115, "official": {"status": "unverified", "source_url": "https://www.ophelgc.com/_YeongCheon/Mobile/Info/ChargeInfo.aspx", "note": "공식 홈페이지가 수집 서버(해외망)에서 응답하지 않아 요금표를 확인하지 못했습니다."}, "monitor": null}, {"id": "cheongtong", "name": "골프존카운티 청통", "aliases": ["청통골프장"], "city": "영천", "holes": 18, "type": "대중제", "address": "경북 영천시 청통면 은해사로 49-77", "phone": "054-339-8000", "website": "https://www.golfzoncounty.com/", "booking_url": "https://m.golfzoncounty.com/reserve/main?active=real", "teescanner_seq": 592, "official": {"status": "unverified", "source_url": "https://m.golfzoncounty.com/golfclub/resvGuide?golfclubSeq=58", "cart": 100000, "cart_note": "팀당 (공식 이용안내)", "caddie": 140000, "caddie_note": "팀당 (공식 이용안내)", "note": "그린피는 날짜별 변동제로, 공식 티타임 목록은 로그인 후에만 조회됩니다. 아래 실시간 최저가를 참고하세요."}, "monitor": null}, {"id": "ciel", "name": "시엘GC", "aliases": ["시엘골프클럽"], "city": "영천", "holes": 9, "type": "대중제", "address": "경북 영천시 청통면 청통로 334-41", "phone": "054-336-7200", "website": "https://www.cielgolf.com/", "booking_url": "https://www.cielgolf.com/", "teescanner_seq": 341, "official": {"status": "unverified", "source_url": "https://www.cielgolf.com/html/guide/guide02.asp", "note": "공식 홈페이지가 해외 접속을 차단(CloudFront 국가 차단)하여 요금표를 확인하지 못했습니다."}, "monitor": null}], "live": {"source": "골프존 티스캐너 공개 티타임 목록", "fetched_at": "2026-10-03T09:30:27+09:00", "dates": [{"date": "2026-10-03", "label": "10/3(토)", "weekend": true, "holiday": true}, {"date": "2026-10-04", "label": "10/4(일)", "weekend": true, "holiday": false}, {"date": "2026-10-05", "label": "10/5(월)", "weekend": true, "holiday": true}, {"date": "2026-10-06", "label": "10/6(화)", "weekend": false, "holiday": false}, {"date": "2026-10-07", "label": "10/7(수)", "weekend": false, "holiday": false}, {"date": "2026-10-08", "label": "10/8(목)", "weekend": false, "holiday": false}, {"date": "2026-10-09", "label": "10/9(금)", "weekend": true, "holiday": true}], "courses": {"pohangcc": {"seq": 178, "url": "https://www.teescanner.com/booking/detail?tab=teetime&golfclub_seq=178", "days": {"2026-10-03": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-04": {"count": 9, "min18": 90000, "min18_time": "18:53", "min9": null, "parts": {"1부": 120000, "2부": 160000, "3부": 90000}, "caddie": ["정규캐디"], "count18": 9}, "2026-10-05": {"count": 82, "min18": 100000, "min18_time": "16:26", "min9": null, "parts": {"1부": 150000, "2부": 160000, "3부": 100000}, "caddie": ["정규캐디"], "count18": 82}, "2026-10-06": {"count": 68, "min18": 90000, "min18_time": "17:08", "min9": null, "parts": {"1부": 100000, "2부": 120000, "3부": 90000}, "caddie": ["정규캐디"], "count18": 68}, "2026-10-07": {"count": 40, "min18": 90000, "min18_time": "16:47", "min9": null, "parts": {"1부": 100000, "2부": 120000, "3부": 90000}, "caddie": ["정규캐디"], "count18": 40}, "2026-10-08": {"count": 19, "min18": 90000, "min18_time": "18:46", "min9": null, "parts": {"1부": 100000, "3부": 90000}, "caddie": ["정규캐디"], "count18": 19}, "2026-10-09": {"count": 28, "min18": 100000, "min18_time": "17:50", "min9": null, "parts": {"1부": 150000, "3부": 100000}, "caddie": ["정규캐디"], "count18": 28}}}, "oceanhills_pohang": {"seq": 122, "url": "https://www.teescanner.com/booking/detail?tab=teetime&golfclub_seq=122", "days": {"2026-10-03": {"count": 4, "min18": 110000, "min18_time": "18:17", "min9": null, "parts": {"3부": 110000}, "caddie": ["정규캐디"], "count18": 4}, "2026-10-04": {"count": 15, "min18": 110000, "min18_time": "17:56", "min9": null, "parts": {"1부": 230000, "3부": 110000}, "caddie": ["정규캐디"], "count18": 15}, "2026-10-05": {"count": 28, "min18": 85000, "min18_time": "17:50", "min9": null, "parts": {"1부": 230000, "2부": 230000, "3부": 85000}, "caddie": ["정규캐디"], "count18": 28}, "2026-10-06": {"count": 42, "min18": 120000, "min18_time": "06:33", "min9": null, "parts": {"1부": 120000, "2부": 140000}, "caddie": ["정규캐디"], "count18": 42}, "2026-10-07": {"count": 53, "min18": 85000, "min18_time": "17:19", "min9": null, "parts": {"1부": 130000, "2부": 150000, "3부": 85000}, "caddie": ["정규캐디"], "count18": 53}, "2026-10-08": {"count": 23, "min18": 110000, "min18_time": "17:27", "min9": null, "parts": {"1부": 130000, "2부": 180000, "3부": 110000}, "caddie": ["정규캐디"], "count18": 23}, "2026-10-09": {"count": 22, "min18": 110000, "min18_time": "17:36", "min9": null, "parts": {"1부": 230000, "2부": 230000, "3부": 110000}, "caddie": ["정규캐디"], "count18": 22}}}, "silla": {"seq": 312, "url": "https://www.teescanner.com/booking/detail?tab=teetime&golfclub_seq=312", "days": {"2026-10-03": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-04": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-05": {"count": 20, "min18": 100000, "min18_time": "18:08", "min9": null, "parts": {"3부": 100000}, "caddie": ["노캐디"], "count18": 20}, "2026-10-06": {"count": 37, "min18": 80000, "min18_time": "17:47", "min9": null, "parts": {"1부": 140000, "2부": 160000, "3부": 80000}, "caddie": ["노캐디", "정규캐디"], "count18": 37}, "2026-10-07": {"count": 28, "min18": 80000, "min18_time": "17:47", "min9": null, "parts": {"1부": 140000, "3부": 80000}, "caddie": ["노캐디", "정규캐디"], "count18": 28}, "2026-10-08": {"count": 17, "min18": 100000, "min18_time": "18:29", "min9": null, "parts": {"1부": 140000, "3부": 100000}, "caddie": ["노캐디", "정규캐디"], "count18": 17}, "2026-10-09": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}}}, "seorabol": {"seq": 196, "url": "https://www.teescanner.com/booking/detail?tab=teetime&golfclub_seq=196", "days": {"2026-10-03": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-04": {"count": 1, "min18": 110000, "min18_time": "18:08", "min9": null, "parts": {"3부": 110000}, "caddie": ["노캐디"], "count18": 1}, "2026-10-05": {"count": 111, "min18": 120000, "min18_time": "16:16", "min9": null, "parts": {"1부": 150000, "2부": 180000, "3부": 120000}, "caddie": ["노캐디", "정규캐디"], "count18": 111}, "2026-10-06": {"count": 126, "min18": 120000, "min18_time": "06:42", "min9": null, "parts": {"1부": 120000, "2부": 150000, "3부": 120000}, "caddie": ["노캐디", "정규캐디"], "count18": 126}, "2026-10-07": {"count": 119, "min18": 120000, "min18_time": "06:35", "min9": null, "parts": {"1부": 120000, "2부": 150000, "3부": 120000}, "caddie": ["정규캐디"], "count18": 119}, "2026-10-08": {"count": 55, "min18": 120000, "min18_time": "06:35", "min9": null, "parts": {"1부": 120000, "2부": 150000, "3부": 120000}, "caddie": ["정규캐디"], "count18": 55}, "2026-10-09": {"count": 27, "min18": 120000, "min18_time": "17:26", "min9": null, "parts": {"1부": 150000, "3부": 120000}, "caddie": ["정규캐디"], "count18": 27}}}, "kyongjucc": {"seq": 313, "url": "https://www.teescanner.com/booking/detail?tab=teetime&golfclub_seq=313", "days": {"2026-10-03": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-04": {"count": 10, "min18": 150000, "min18_time": "05:53", "min9": null, "parts": {"1부": 150000}, "caddie": ["정규캐디"], "count18": 10}, "2026-10-05": {"count": 64, "min18": 85000, "min18_time": "18:04", "min9": null, "parts": {"1부": 120000, "2부": 170000, "3부": 85000}, "caddie": ["정규캐디"], "count18": 64}, "2026-10-06": {"count": 27, "min18": 70000, "min18_time": "18:46", "min9": null, "parts": {"1부": 105000, "2부": 140000, "3부": 70000}, "caddie": ["정규캐디"], "count18": 27}, "2026-10-07": {"count": 85, "min18": 70000, "min18_time": "18:00", "min9": null, "parts": {"1부": 105000, "2부": 140000, "3부": 70000}, "caddie": ["정규캐디"], "count18": 85}, "2026-10-08": {"count": 41, "min18": 70000, "min18_time": "19:00", "min9": null, "parts": {"1부": 105000, "2부": 140000, "3부": 70000}, "caddie": ["정규캐디"], "count18": 41}, "2026-10-09": {"count": 20, "min18": 150000, "min18_time": "05:53", "min9": null, "parts": {"1부": 150000}, "caddie": ["정규캐디"], "count18": 20}}}, "honors": {"seq": 253, "url": "https://www.teescanner.com/booking/detail?tab=teetime&golfclub_seq=253", "days": {"2026-10-03": {"count": 5, "min18": 110000, "min18_time": "19:02", "min9": null, "parts": {"2부": 170000, "3부": 110000}, "caddie": ["노캐디", "정규캐디"], "count18": 5}, "2026-10-04": {"count": 12, "min18": 110000, "min18_time": "18:48", "min9": null, "parts": {"2부": 180000, "3부": 110000}, "caddie": ["노캐디", "정규캐디"], "count18": 12}, "2026-10-05": {"count": 31, "min18": 100000, "min18_time": "17:59", "min9": null, "parts": {"1부": 160000, "2부": 170000, "3부": 100000}, "caddie": ["노캐디", "정규캐디"], "count18": 31}, "2026-10-06": {"count": 57, "min18": 100000, "min18_time": "17:10", "min9": null, "parts": {"1부": 120000, "2부": 140000, "3부": 100000}, "caddie": ["노캐디", "정규캐디"], "count18": 57}, "2026-10-07": {"count": 58, "min18": 100000, "min18_time": "17:24", "min9": null, "parts": {"1부": 120000, "2부": 140000, "3부": 100000}, "caddie": ["노캐디", "정규캐디"], "count18": 58}, "2026-10-08": {"count": 32, "min18": 120000, "min18_time": "06:20", "min9": null, "parts": {"1부": 120000, "2부": 160000, "3부": 120000}, "caddie": ["노캐디", "정규캐디"], "count18": 32}, "2026-10-09": {"count": 25, "min18": 130000, "min18_time": "17:38", "min9": null, "parts": {"1부": 200000, "3부": 130000}, "caddie": ["노캐디", "정규캐디"], "count18": 25}}}, "mauna": {"seq": 231, "url": "https://www.teescanner.com/booking/detail?tab=teetime&golfclub_seq=231", "days": {"2026-10-03": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-04": {"count": 7, "min18": 120000, "min18_time": "18:50", "min9": null, "parts": {"3부": 120000}, "caddie": ["정규캐디"], "count18": 7}, "2026-10-05": {"count": 43, "min18": 120000, "min18_time": "18:22", "min9": null, "parts": {"1부": 140000, "2부": 160000, "3부": 120000}, "caddie": ["정규캐디"], "count18": 43}, "2026-10-06": {"count": 39, "min18": 120000, "min18_time": "06:07", "min9": null, "parts": {"1부": 120000, "2부": 140000}, "caddie": ["정규캐디"], "count18": 39}, "2026-10-07": {"count": 49, "min18": 100000, "min18_time": "18:29", "min9": null, "parts": {"1부": 120000, "2부": 140000, "3부": 100000}, "caddie": ["정규캐디"], "count18": 49}, "2026-10-08": {"count": 34, "min18": 120000, "min18_time": "06:07", "min9": null, "parts": {"1부": 120000, "2부": 140000, "3부": 120000}, "caddie": ["정규캐디"], "count18": 34}, "2026-10-09": {"count": 22, "min18": 120000, "min18_time": "18:15", "min9": null, "parts": {"2부": 160000, "3부": 120000}, "caddie": ["정규캐디"], "count18": 22}}}, "hillsky": {"seq": 114090, "url": "https://www.teescanner.com/booking/detail?tab=teetime&golfclub_seq=114090", "days": {"2026-10-03": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-04": {"count": 6, "min18": 140000, "min18_time": "06:30", "min9": null, "parts": {"1부": 140000}, "caddie": ["노캐디"], "count18": 6}, "2026-10-05": {"count": 33, "min18": 70000, "min18_time": "17:58", "min9": null, "parts": {"1부": 140000, "2부": 150000, "3부": 70000}, "caddie": ["노캐디"], "count18": 33}, "2026-10-06": {"count": 32, "min18": 60000, "min18_time": "18:33", "min9": null, "parts": {"1부": 100000, "2부": 120000, "3부": 60000}, "caddie": ["노캐디"], "count18": 32}, "2026-10-07": {"count": 25, "min18": 70000, "min18_time": "17:51", "min9": null, "parts": {"1부": 100000, "2부": 120000, "3부": 70000}, "caddie": ["노캐디"], "count18": 25}, "2026-10-08": {"count": 22, "min18": 75000, "min18_time": "18:05", "min9": null, "parts": {"1부": 100000, "2부": 120000, "3부": 75000}, "caddie": ["노캐디"], "count18": 22}, "2026-10-09": {"count": 15, "min18": 80000, "min18_time": "18:47", "min9": null, "parts": {"1부": 140000, "3부": 80000}, "caddie": ["노캐디"], "count18": 15}}}, "gampo": {"seq": 81, "url": "https://www.teescanner.com/booking/detail?tab=teetime&golfclub_seq=81", "days": {"2026-10-03": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-04": {"count": 7, "min18": 106000, "min18_time": "18:38", "min9": null, "parts": {"3부": 106000}, "caddie": ["정규캐디"], "count18": 7}, "2026-10-05": {"count": 7, "min18": 156000, "min18_time": "06:51", "min9": null, "parts": {"1부": 156000, "2부": 166000}, "caddie": ["정규캐디"], "count18": 7}, "2026-10-06": {"count": 43, "min18": 76000, "min18_time": "17:00", "min9": null, "parts": {"1부": 126000, "2부": 146000, "3부": 76000}, "caddie": ["정규캐디"], "count18": 43}, "2026-10-07": {"count": 49, "min18": 76000, "min18_time": "17:07", "min9": null, "parts": {"1부": 126000, "2부": 146000, "3부": 76000}, "caddie": ["정규캐디"], "count18": 49}, "2026-10-08": {"count": 10, "min18": 126000, "min18_time": "06:23", "min9": null, "parts": {"1부": 126000, "2부": 146000}, "caddie": ["정규캐디"], "count18": 10}, "2026-10-09": {"count": 28, "min18": 126000, "min18_time": "17:21", "min9": null, "parts": {"1부": 166000, "3부": 126000}, "caddie": ["정규캐디"], "count18": 28}}}, "bomun": {"seq": 216, "url": "https://www.teescanner.com/booking/detail?tab=teetime&golfclub_seq=216", "days": {"2026-10-03": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-04": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-05": {"count": 27, "min18": 70000, "min18_time": "18:42", "min9": null, "parts": {"1부": 120000, "2부": 130000, "3부": 70000}, "caddie": ["정규캐디"], "count18": 27}, "2026-10-06": {"count": 29, "min18": 60000, "min18_time": "18:42", "min9": null, "parts": {"1부": 100000, "2부": 100000, "3부": 60000}, "caddie": ["정규캐디"], "count18": 29}, "2026-10-07": {"count": 45, "min18": 60000, "min18_time": "18:00", "min9": null, "parts": {"1부": 100000, "2부": 130000, "3부": 60000}, "caddie": ["노캐디", "정규캐디"], "count18": 45}, "2026-10-08": {"count": 12, "min18": 100000, "min18_time": "06:00", "min9": null, "parts": {"1부": 100000, "2부": 130000}, "caddie": ["노캐디", "정규캐디"], "count18": 12}, "2026-10-09": {"count": 10, "min18": 80000, "min18_time": "18:42", "min9": null, "parts": {"1부": 140000, "3부": 80000}, "caddie": ["정규캐디"], "count18": 10}}}, "garden": {"seq": 319, "url": "https://www.teescanner.com/booking/detail?tab=teetime&golfclub_seq=319", "days": {"2026-10-03": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-04": {"count": 16, "min18": null, "min18_time": null, "min9": 42000, "parts": {}, "caddie": ["노캐디"], "count18": 0}, "2026-10-05": {"count": 38, "min18": 89000, "min18_time": "05:42", "min9": 42000, "parts": {"1부": 89000, "2부": 99000, "3부": 99000}, "caddie": ["노캐디"], "count18": 8}, "2026-10-06": {"count": 51, "min18": 57000, "min18_time": "05:42", "min9": 25000, "parts": {"1부": 57000, "2부": 62000, "3부": 62000}, "caddie": ["노캐디"], "count18": 11}, "2026-10-07": {"count": 62, "min18": 57000, "min18_time": "05:42", "min9": 25000, "parts": {"1부": 57000, "2부": 62000, "3부": 62000}, "caddie": ["노캐디"], "count18": 17}, "2026-10-08": {"count": 54, "min18": 57000, "min18_time": "05:42", "min9": 25000, "parts": {"1부": 57000, "2부": 62000, "3부": 62000}, "caddie": ["노캐디"], "count18": 14}, "2026-10-09": {"count": 51, "min18": 89000, "min18_time": "05:42", "min9": 42000, "parts": {"1부": 89000, "3부": 99000}, "caddie": ["노캐디"], "count18": 6}}}, "legend": {"seq": 543, "url": "https://www.teescanner.com/booking/detail?tab=teetime&golfclub_seq=543", "days": {"2026-10-03": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-04": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-05": {"count": 10, "min18": 100000, "min18_time": "18:17", "min9": null, "parts": {"3부": 100000}, "caddie": ["드라이빙캐디", "하우스캐디"], "count18": 10}, "2026-10-06": {"count": 4, "min18": 80000, "min18_time": "18:52", "min9": null, "parts": {"3부": 80000}, "caddie": ["드라이빙캐디"], "count18": 4}, "2026-10-07": {"count": 4, "min18": 80000, "min18_time": "06:28", "min9": null, "parts": {"1부": 80000, "3부": 80000}, "caddie": ["드라이빙캐디", "하우스캐디"], "count18": 4}, "2026-10-08": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-09": {"count": 9, "min18": 100000, "min18_time": "18:24", "min9": null, "parts": {"3부": 100000}, "caddie": ["드라이빙캐디", "하우스캐디"], "count18": 9}}}, "uri": {"seq": 361, "url": "https://www.teescanner.com/booking/detail?tab=teetime&golfclub_seq=361", "days": {"2026-10-03": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-04": {"count": 46, "min18": 50000, "min18_time": "20:01", "min9": 50000, "parts": {"1부": 120000, "3부": 50000}, "caddie": ["정규캐디"], "count18": 17}, "2026-10-05": {"count": 138, "min18": 40000, "min18_time": "20:01", "min9": 40000, "parts": {"1부": 120000, "2부": 130000, "3부": 40000}, "caddie": ["정규캐디"], "count18": 59}, "2026-10-06": {"count": 125, "min18": 40000, "min18_time": "20:01", "min9": 40000, "parts": {"1부": 95000, "2부": 90000, "3부": 40000}, "caddie": ["정규캐디"], "count18": 53}, "2026-10-07": {"count": 163, "min18": 40000, "min18_time": "20:01", "min9": 40000, "parts": {"1부": 95000, "2부": 90000, "3부": 40000}, "caddie": ["정규캐디"], "count18": 72}, "2026-10-08": {"count": 152, "min18": 40000, "min18_time": "20:01", "min9": 40000, "parts": {"1부": 95000, "2부": 100000, "3부": 40000}, "caddie": ["정규캐디"], "count18": 68}, "2026-10-09": {"count": 117, "min18": 50000, "min18_time": "20:01", "min9": 50000, "parts": {"1부": 120000, "2부": 130000, "3부": 50000}, "caddie": ["정규캐디"], "count18": 51}}}, "oceanhills_yc": {"seq": 414, "url": "https://www.teescanner.com/booking/detail?tab=teetime&golfclub_seq=414", "days": {"2026-10-03": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-04": {"count": 16, "min18": 120000, "min18_time": "17:50", "min9": null, "parts": {"3부": 120000}, "caddie": ["정규캐디"], "count18": 16}, "2026-10-05": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-06": {"count": 5, "min18": 140000, "min18_time": "08:10", "min9": null, "parts": {"1부": 140000, "2부": 140000}, "caddie": ["정규캐디"], "count18": 5}, "2026-10-07": {"count": 37, "min18": 100000, "min18_time": "17:11", "min9": null, "parts": {"1부": 130000, "3부": 100000}, "caddie": ["정규캐디"], "count18": 37}, "2026-10-08": {"count": 25, "min18": 120000, "min18_time": "17:18", "min9": null, "parts": {"1부": 160000, "2부": 160000, "3부": 120000}, "caddie": ["정규캐디"], "count18": 25}, "2026-10-09": {"count": 19, "min18": 120000, "min18_time": "17:34", "min9": null, "parts": {"3부": 120000}, "caddie": ["정규캐디"], "count18": 19}}}, "ophel": {"seq": 115, "url": "https://www.teescanner.com/booking/detail?tab=teetime&golfclub_seq=115", "days": {"2026-10-03": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-04": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-05": {"count": 3, "min18": 150000, "min18_time": "06:30", "min9": null, "parts": {"1부": 150000}, "caddie": ["정규캐디"], "count18": 3}, "2026-10-06": {"count": 18, "min18": 90000, "min18_time": "06:30", "min9": null, "parts": {"1부": 90000, "2부": 130000}, "caddie": ["정규캐디"], "count18": 18}, "2026-10-07": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-08": {"count": 3, "min18": 110000, "min18_time": "07:05", "min9": null, "parts": {"1부": 110000, "2부": 160000}, "caddie": ["정규캐디"], "count18": 3}, "2026-10-09": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}}}, "cheongtong": {"seq": 592, "url": "https://www.teescanner.com/booking/detail?tab=teetime&golfclub_seq=592", "days": {"2026-10-03": {"count": 6, "min18": 91000, "min18_time": "18:52", "min9": null, "parts": {"3부": 91000}, "caddie": ["노캐디"], "count18": 6}, "2026-10-04": {"count": 10, "min18": 91000, "min18_time": "18:52", "min9": null, "parts": {"1부": 136000, "3부": 91000}, "caddie": ["노캐디", "정규캐디"], "count18": 10}, "2026-10-05": {"count": 20, "min18": 71000, "min18_time": "18:45", "min9": null, "parts": {"1부": 101000, "3부": 71000}, "caddie": ["노캐디", "정규캐디"], "count18": 20}, "2026-10-06": {"count": 59, "min18": 66000, "min18_time": "06:10", "min9": null, "parts": {"1부": 66000, "2부": 102000, "3부": 71000}, "caddie": ["노캐디", "정규캐디"], "count18": 59}, "2026-10-07": {"count": 54, "min18": 61000, "min18_time": "06:10", "min9": null, "parts": {"1부": 61000, "2부": 112000, "3부": 71000}, "caddie": ["노캐디", "정규캐디"], "count18": 54}, "2026-10-08": {"count": 26, "min18": 71000, "min18_time": "06:10", "min9": null, "parts": {"1부": 71000, "2부": 132000, "3부": 91000}, "caddie": ["노캐디", "정규캐디"], "count18": 26}, "2026-10-09": {"count": 34, "min18": 91000, "min18_time": "18:22", "min9": null, "parts": {"1부": 121000, "2부": 152000, "3부": 91000}, "caddie": ["노캐디", "정규캐디"], "count18": 34}}}, "ciel": {"seq": 341, "url": "https://www.teescanner.com/booking/detail?tab=teetime&golfclub_seq=341", "days": {"2026-10-03": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-04": {"count": 0, "min18": null, "min18_time": null, "min9": null, "parts": {}, "caddie": [], "count18": 0}, "2026-10-05": {"count": 15, "min18": 55000, "min18_time": "17:26", "min9": 45000, "parts": {"1부": 80000, "2부": 87000, "3부": 55000}, "caddie": ["노캐디"], "count18": 11}, "2026-10-06": {"count": 65, "min18": 50000, "min18_time": "16:37", "min9": 40000, "parts": {"1부": 55000, "2부": 60000, "3부": 50000}, "caddie": ["노캐디"], "count18": 53}, "2026-10-07": {"count": 48, "min18": 50000, "min18_time": "16:37", "min9": 40000, "parts": {"1부": 55000, "2부": 60000, "3부": 50000}, "caddie": ["노캐디"], "count18": 35}, "2026-10-08": {"count": 62, "min18": 50000, "min18_time": "16:51", "min9": 40000, "parts": {"1부": 55000, "2부": 60000, "3부": 50000}, "caddie": ["노캐디"], "count18": 42}, "2026-10-09": {"count": 18, "min18": 55000, "min18_time": "17:05", "min9": 45000, "parts": {"1부": 80000, "2부": 87000, "3부": 55000}, "caddie": ["노캐디"], "count18": 13}}}}}};
+const PREFER_JSON = false;
+const S = {city:'전체', mode:'official', day:'weekday', sort:'asc', date:null};
+let D = null;
+
+const won = n => (n===null||n===undefined) ? '' : n.toLocaleString('ko-KR');
+const esc = s => String(s??'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function kst(iso){
+  if(!iso) return '-';
+  const d = new Date(iso);
+  const p = new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(d);
+  const g = t => (p.find(x=>x.type===t)||{}).value;
+  return `${g('year')}.${g('month')}.${g('day')} ${g('hour')}:${g('minute')} KST`;
+}
+const STATUS = {verified:'공식 요금 확인', stale:'게시표 확인 필요', unverified:'확인 필요'};
+
+function liveOf(c){ return D.live && D.live.courses ? D.live.courses[c.id] : null; }
+function liveDay(c, date){ const l = liveOf(c); return l && l.days ? l.days[date] : null; }
+
+function sortKey(c){
+  if(S.mode==='live'){
+    const v = liveDay(c, S.date);
+    return v && v.min18 ? v.min18 : null;
+  }
+  const o = c.official, r = o && o[S.day];
+  return (o && o.status!=='unverified' && r) ? r.min : null;
+}
+
+function render(){
+  const list = document.getElementById('list');
+  let cs = D.courses.filter(c => S.city==='전체' || c.city===S.city);
+  cs.sort((a,b)=>{
+    if(S.sort==='name') return a.name.localeCompare(b.name,'ko');
+    const ka = sortKey(a), kb = sortKey(b);
+    if(ka===null && kb===null) return a.name.localeCompare(b.name,'ko');
+    if(ka===null) return 1; if(kb===null) return -1;
+    return S.sort==='asc' ? ka-kb : kb-ka;
+  });
+  const cnt = {verified:0, stale:0, unverified:0};
+  cs.forEach(c=>cnt[c.official.status]++);
+  const liveN = cs.filter(c => { const v = S.date && liveDay(c,S.date); return v && v.min18; }).length;
+  document.getElementById('summary').innerHTML =
+    `${S.city==='전체'?'포항·경주·영천':S.city} 골프장 <b>${cs.length}곳</b> · 공식 요금 확인 ${cnt.verified} · 게시표 확인 필요 ${cnt.stale} · 확인 필요 ${cnt.unverified}` +
+    (S.mode==='live' ? `<br>실시간 최저가(${esc(dateLabel(S.date))}) 확인 ${liveN}곳 · 금액은 1인 18홀 기준 그린피(카트·캐디 별도)` : `<br>금액은 1인 그린피 기준(원). 카트비·캐디피는 팀당 별도입니다.`);
+  list.innerHTML = cs.length ? cs.map(card).join('') : '<div class="empty">조건에 맞는 골프장이 없습니다.</div>';
+}
+
+function dateLabel(ds){ const m = (D.live?.dates||[]).find(x=>x.date===ds); return m ? m.label : ds; }
+
+function card(c){
+  const o = c.official || {};
+  const r = o[S.day];
+  const dayTxt = S.day==='weekday' ? '평일' : '주말·공휴일';
+  let priceHtml = '';
+  if(S.mode==='live'){
+    const v = liveDay(c, S.date);
+    if(v && v.min18){
+      priceHtml = `<div class="price"><span class="big">${won(v.min18)}원</span><span class="unit">${esc(dateLabel(S.date))} 실시간 최저가 · ${esc(v.min18_time||'')} 티오프</span></div>
+      <div class="sub">예약 가능 티타임 ${v.count18}개${v.parts?(' · '+Object.entries(v.parts).sort().map(([k,x])=>`${k} ${won(x)}`).join(' / ')):''}</div>`;
+    } else if(v && v.min9){
+      priceHtml = `<div class="price"><span class="big">${won(v.min9)}원</span><span class="unit">${esc(dateLabel(S.date))} 9홀 상품 최저가</span></div>`;
+    } else {
+      priceHtml = `<div class="price"><span class="na">실시간 가격 없음</span><span class="unit">${liveOf(c)?'해당 날짜 공개 티타임 없음':'실시간 제공처 없음(아래 공식 요금 참고)'}</span></div>`;
+    }
+    if(o.status!=='unverified' && r) priceHtml += `<div class="sub">공식 요금표 ${dayTxt}: ${won(r.min)}${r.max!==r.min?'~'+won(r.max):''}원 (${esc(o.basis||'')})</div>`;
+  } else {
+    if(o.status!=='unverified' && r){
+      priceHtml = `<div class="price"><span class="big">${won(r.min)}${r.max!==r.min?' ~ '+won(r.max):''}원</span><span class="unit">${dayTxt} · ${esc(o.basis||'')}</span></div>
+        <div class="sub">적용 기간: ${esc(o.period||'-')}</div>`;
+    } else {
+      priceHtml = `<div class="price"><span class="na">요금 확인 필요</span></div><div class="sub">${esc(o.note||'')}</div>`;
+    }
+  }
+  const feeBox = (label, v, note) => `<div class="fee"><b>${label}</b><span>${v===null||v===undefined?'확인 필요':(v===0?'없음':won(v)+'원')}</span>${note?`<small>${esc(note)}</small>`:''}</div>`;
+  const cart = (o.cart===null||o.cart===undefined) && o.cart_note ? `<div class="fee"><b>카트비</b><span>${/인/.test(o.cart_note)?'인원별':'별도'}</span><small>${esc(o.cart_note)}</small></div>` : feeBox('카트비(팀)', o.cart, o.cart_note);
+  const caddie = (o.caddie===null||o.caddie===undefined) && o.caddie_note ? `<div class="fee"><b>캐디피</b><span>${/노캐디/.test(o.caddie_note)?'노캐디':(/미표기/.test(o.caddie_note)?'미표기':'별도')}</span><small>${esc(o.caddie_note)}</small></div>` : feeBox('캐디피(팀)', o.caddie, o.caddie_note);
+  const wkd = o.weekday, wke = o.weekend;
+  const both = (o.status!=='unverified' && wkd && wke) ?
+     `<div class="fee"><b>평일 그린피</b><span>${won(wkd.min)}${wkd.max!==wkd.min?'~'+won(wkd.max):''}</span></div><div class="fee"><b>주말 그린피</b><span>${won(wke.min)}${wke.max!==wke.min?'~'+won(wke.max):''}</span></div>` : '';
+  const l = liveOf(c);
+  let liveHtml = '';
+  if(l && D.live.dates){
+    const cells = D.live.dates.map(dm=>{
+      const v = l.days[dm.date] || {};
+      const p = v.min18 ? (v.min18>=10000? (Math.round(v.min18/1000)/10).toString().replace(/\.0$/,'')+'만' : won(v.min18)) : (v.min9 ? '9홀 '+(v.min9/10000)+'만' : '-');
+      return `<div class="day ${dm.weekend?'we':''} ${v.min18||v.min9?'':'none'} ${S.mode==='live'&&dm.date===S.date?'sel':''}"><div class="d">${esc(dm.label)}</div><div class="p">${p}</div><div class="c">${v.count18?v.count18+'팀':''}</div></div>`;
+    }).join('');
+    liveHtml = `<div class="live"><h4>📅 날짜별 실시간 최저가 (1인·18홀) <small>티스캐너 · ${esc(kst(D.live.fetched_at))}</small></h4><div class="days">${cells}</div></div>`;
+  }
+  const warn = [];
+  if(o.changed) warn.push(`<div class="warnbox">⚠️ ${esc(o.changed_note)}</div>`);
+  if(o.status==='stale' && o.note) warn.push(`<div class="warnbox">⚠️ ${esc(o.note)}</div>`);
+  if(o.check_error) warn.push(`<div class="errbox">${esc(o.check_error)}</div>`);
+  const rows = (o.rows||[]).map(x=>`<li>${esc(x)}</li>`).join('');
+  const extra = rows || (o.note && o.status!=='unverified') ? `<details><summary>요금 상세 보기</summary><ul>${rows}${o.note&&o.status!=='stale'?`<li>${esc(o.note)}</li>`:''}${o.image_url?`<li><a href="${esc(o.image_url)}" target="_blank" rel="noopener">요금표 이미지 원본</a></li>`:''}</ul></details>` : '';
+  const tel = (c.phone||'').replace(/[^0-9]/g,'');
+  return `<article class="card" id="c-${esc(c.id)}">
+    <div class="top"><div><div class="name">${esc(c.name)}</div>${c.aliases&&c.aliases.length?`<div class="alias">${esc(c.aliases.join(' · '))}</div>`:''}
+      <div class="tags"><span class="tag city">${esc(c.city)}</span><span class="tag">${c.holes}홀</span><span class="tag">${esc(c.type)}</span></div></div>
+      <span class="st ${o.status}">${STATUS[o.status]||''}</span></div>
+    ${priceHtml}
+    <div class="fees">${both}${cart}${caddie}</div>
+    ${liveHtml}
+    ${warn.join('')}
+    ${extra}
+    <div class="meta">📍 ${esc(c.address)}<br>공식 요금 출처: <a href="${esc(o.source_url)}" target="_blank" rel="noopener">${esc(o.source_url)}</a><br>기준일: ${esc(kst(o.auto_parsed_at||o.checked_at||D.meta.verified_at))} 확인${l?` · 실시간: <a href="${esc(l.url)}" target="_blank" rel="noopener">티스캐너</a>`:''}</div>
+    <div class="acts">${tel?`<a class="call" href="tel:${tel}">📞 ${esc(c.phone)}</a>`:''}<a class="book" href="${esc(c.booking_url||c.website)}" target="_blank" rel="noopener">예약하기</a><a href="${esc(o.source_url)}" target="_blank" rel="noopener">요금표</a></div>
+  </article>`;
+}
+
+
+// ---------------------------------------------------------------- 대시보드
+const DS = {city:'전체', date:'week'};
+const man = v => { const x = Math.round(v/1000)/10; return (x%1===0? x.toFixed(0) : x.toFixed(1)); };
+const cb = city => `<span class="cb c${esc(city)}">${esc(city)}</span>`;
+function dCourses(){ return D.courses.filter(c => DS.city==='전체' || c.city===DS.city); }
+// 선택 날짜(또는 7일) 기준 골프장별 최저 18홀 가격
+function bestOf(c, date){
+  const l = liveOf(c); if(!l || !l.days) return null;
+  const ds = date==='week' ? (D.live.dates||[]).map(x=>x.date) : [date];
+  let b = null;
+  ds.forEach(d=>{ const v = l.days[d]; if(v && v.min18 && (!b || v.min18 < b.min18)) b = {...v, date:d}; });
+  return b;
+}
+function hasTee(c, date){ const v = liveDay(c, date); return !!(v && (v.count18 || v.count)); }
+function heat(v, lo, hi){ const t = hi>lo ? (v-lo)/(hi-lo) : 0; const h = 130 - 130*t; return `hsl(${h.toFixed(0)},${(55+20*Math.sin(Math.PI*t)).toFixed(0)}%,72%)`; }
+
+function goCourse(id, date){
+  const c = D.courses.find(x=>x.id===id); if(!c) return;
+  if(S.city!=='전체' && S.city!==c.city){ S.city='전체'; [...document.getElementById('cityRow').children].forEach(x=>x.classList.toggle('on',x.dataset.v==='전체')); }
+  if(date && D.live && D.live.dates && D.live.dates.some(x=>x.date===date)){
+    S.mode='live'; S.date=date;
+    [...document.getElementById('modeSeg').children].forEach(x=>x.classList.toggle('on',x.dataset.v==='live'));
+    document.getElementById('dateRow').style.display='flex'; document.getElementById('daySeg').style.display='none';
+    [...document.querySelectorAll('#dateRow button')].forEach(x=>x.classList.toggle('on',x.dataset.v===date));
+  }
+  setTab('list'); render();
+  const el = document.getElementById('c-'+id);
+  if(el){ const y = el.getBoundingClientRect().top + window.scrollY - document.querySelector('.bar').offsetHeight - 54; window.scrollTo({top:y}); el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); }
+}
+function setTab(t){
+  document.body.classList.toggle('dash', t==='dash');
+  [...document.getElementById('tabs').children].forEach(x=>x.classList.toggle('on',x.dataset.v===t));
+  if(t==='dash') window.scrollTo({top:0});
+}
+
+function renderDash(){
+  const dates = D.live?.dates || [];
+  const cs = dCourses();
+  const liveCs = cs.filter(c=>liveOf(c));
+  // KPI
+  let best = null;
+  liveCs.forEach(c=>{ const b = bestOf(c,'week'); if(b && (!best || b.min18 < best.min18 || (b.min18===best.min18 && b.date<best.date))) best = {...b, c}; });
+  const tee = d => d ? cs.filter(c=>hasTee(c,d.date)).length : null;
+  const d0 = dates[0], d1 = dates[1];
+  const where = DS.city==='전체' ? '포항·경주·영천' : DS.city;
+  document.getElementById('kpis').innerHTML = `
+    <div class="kpi"><b>골프장 수 · ${esc(where)}</b><div class="v">${cs.length}<small>곳</small></div><div class="s">실시간 가격 제공 ${liveCs.length}곳</div></div>
+    <div class="kpi hot" ${best?`onclick="goCourse('${esc(best.c.id)}','${best.date}')" style="cursor:pointer"`:''}><b>7일 내 18홀 최저가</b><div class="v">${best?won(best.min18)+'<small>원</small>':'-'}</div><div class="s">${best?`${esc(best.c.name)} · ${esc(dateLabel(best.date))} ${esc(best.min18_time||'')}`:'-'}</div></div>
+    <div class="kpi"><b>예약 가능 골프장 (오늘/내일)</b><div class="v">${tee(d0)??'-'}<small>/</small>${tee(d1)??'-'}<small>곳</small></div><div class="s">${d0?esc(d0.label):'-'} / ${d1?esc(d1.label):'-'} 기준</div></div>
+    <div class="kpi"><b>데이터 갱신 (KST)</b><div class="v sm">${esc(kst(D.live?.fetched_at||D.meta.generated_at).replace(' KST',''))}</div><div class="s">티스캐너 실시간 수집 시각</div></div>`;
+  // 날짜 칩
+  const dd = document.getElementById('dDate');
+  dd.innerHTML = `<button class="chip date ${DS.date==='week'?'on':''}" data-v="week">7일 전체</button>` + dates.map(d=>`<button class="chip date ${(d.weekend||d.holiday)?'we':''} ${d.date===DS.date?'on':''}" data-v="${d.date}">${esc(d.label)}</button>`).join('');
+  const selLbl = DS.date==='week' ? '7일 전체' : dateLabel(DS.date);
+  // TOP5
+  const rows = liveCs.map(c=>({c, b:bestOf(c, DS.date)})).filter(x=>x.b).sort((a,b)=>a.b.min18-b.b.min18 || a.c.name.localeCompare(b.c.name,'ko'));
+  document.getElementById('topSub').textContent = `${selLbl} · 18홀·1인`;
+  document.getElementById('top5').innerHTML = rows.length ? rows.slice(0,5).map((x,i)=>`
+    <div class="rk" onclick="goCourse('${esc(x.c.id)}','${x.b.date}')"><div class="n">${i+1}</div>
+      <div class="m"><div class="t">${esc(x.c.name)}</div><div class="i">${cb(x.c.city)}${x.c.holes}홀 · ${DS.date==='week'?esc(dateLabel(x.b.date))+' ':''}${esc(x.b.min18_time||'-')} 티오프</div></div>
+      <div class="pr"><b>${won(x.b.min18)}원</b><div>티타임 ${x.b.count18 ?? x.b.count ?? '-'}개</div></div></div>`).join('')
+    : '<div class="empty" style="padding:18px 0">해당 날짜의 실시간 18홀 가격이 없습니다.</div>';
+  // 지역 요약 (지역 필터와 무관하게 3개 지역 모두 표시)
+  document.getElementById('citySub').textContent = selLbl;
+  document.getElementById('cities').innerHTML = ['포항','경주','영천'].map(city=>{
+    const all = D.courses.filter(c=>c.city===city);
+    const ps = all.map(c=>bestOf(c, DS.date)).filter(Boolean).map(b=>b.min18);
+    const mn = ps.length ? Math.min(...ps) : null, av = ps.length ? Math.round(ps.reduce((a,b)=>a+b,0)/ps.length/1000)*1000 : null;
+    return `<div class="city"><div class="cn">${cb(city)}</div><div class="cc">${all.length}곳 · 가격 ${ps.length}곳</div><div class="mn">${mn?won(mn):'-'}</div><div class="av">평균 ${av?won(av):'-'}</div></div>`;
+  }).join('');
+  // 막대 차트
+  const mins = dates.map(d=>{ let m=null, who=null; liveCs.forEach(c=>{ const v=liveDay(c,d.date); if(v&&v.min18&&(m===null||v.min18<m)){m=v.min18;who=c;} }); return {d,m,who}; });
+  const W=360,H=150,pt=22,pb=34,bw=W/Math.max(dates.length,1);
+  const mx = Math.max(...mins.map(x=>x.m||0), 1);
+  document.getElementById('chart').innerHTML = dates.length ? `<svg class="chart" viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="날짜별 최저가">
+    ${mins.map((x,i)=>{ const cx=i*bw+bw/2; const we=x.d.weekend||x.d.holiday; const sel = DS.date===x.d.date;
+      if(!x.m) return `<text x="${cx}" y="${H-pb-6}" font-size="11" text-anchor="middle" fill="#9aa4b2">-</text><text x="${cx}" y="${H-pb+16}" font-size="10.5" text-anchor="middle" fill="${we?'#c0362c':'#51607a'}">${esc(x.d.label.replace(/\(.\)/,''))}</text><text x="${cx}" y="${H-pb+29}" font-size="10" text-anchor="middle" fill="${we?'#c0362c':'#7a869a'}">${esc((x.d.label.match(/\((.)\)/)||[])[1]||'')}</text>`;
+      const h=(H-pt-pb)*x.m/mx; const y=H-pb-h;
+      return `<g style="cursor:pointer" onclick="DS.date='${x.d.date}';renderDash()"><rect x="${cx-bw*0.3}" y="${y}" width="${bw*0.6}" height="${h}" rx="4" fill="${sel?'#0f5132':(we?'#e8857c':'#6fbf8e')}"/>
+        <text x="${cx}" y="${y-5}" font-size="11" font-weight="700" text-anchor="middle" fill="#1b1f1d">${man(x.m)}만</text>
+        <text x="${cx}" y="${H-pb+16}" font-size="10.5" text-anchor="middle" fill="${we?'#c0362c':'#51607a'}">${esc(x.d.label.replace(/\(.\)/,''))}</text>
+        <text x="${cx}" y="${H-pb+29}" font-size="10" text-anchor="middle" fill="${we?'#c0362c':'#7a869a'}">${esc((x.d.label.match(/\((.)\)/)||[])[1]||'')}</text></g>`; }).join('')}
+    <line x1="0" y1="${H-pb}" x2="${W}" y2="${H-pb}" stroke="#e3e8e5"/></svg>
+    <div class="note">막대를 누르면 위 TOP 5·지역 요약이 그 날짜로 바뀝니다. 빨간색 = 주말·공휴일</div>` : '<div class="empty">실시간 데이터 없음</div>';
+  // 히트맵
+  const vals = []; liveCs.forEach(c=>dates.forEach(d=>{ const v=liveDay(c,d.date); if(v&&v.min18) vals.push(v.min18); }));
+  const lo = vals.length?Math.min(...vals):0, hi = vals.length?Math.max(...vals):0;
+  const hcs = [...cs].sort((a,b)=>{ const x=bestOf(a,'week'), y=bestOf(b,'week'); if(!x&&!y) return a.name.localeCompare(b.name,'ko'); if(!x) return 1; if(!y) return -1; return x.min18-y.min18; });
+  document.getElementById('hm').innerHTML = `<thead><tr><th class="cn">골프장</th>${dates.map(d=>`<th class="${(d.weekend||d.holiday)?'we':''}">${esc(d.label).replace('(','<br>(')}</th>`).join('')}</tr></thead><tbody>` +
+    hcs.map(c=>{ const l=liveOf(c);
+      return `<tr><td class="cn" onclick="goCourse('${esc(c.id)}')" title="${esc(c.name)}">${cb(c.city)}${esc(c.name)}</td>` + dates.map(d=>{ const v=l&&l.days?l.days[d.date]:null;
+        return v&&v.min18 ? `<td class="v" style="background:${heat(v.min18,lo,hi)}" onclick="goCourse('${esc(c.id)}','${d.date}')" title="${esc(c.name)} ${esc(d.label)} ${won(v.min18)}원">${man(v.min18)}</td>` : `<td class="v na" onclick="goCourse('${esc(c.id)}'${l?`,'${d.date}'`:''})">${l?'-':'·'}</td>`; }).join('') + '</tr>'; }).join('') + '</tbody>';
+  const noLive = cs.filter(c=>!liveOf(c)).map(c=>c.name);
+  document.getElementById('hmNote').innerHTML = `범위 ${vals.length?won(lo)+'~'+won(hi)+'원':'-'} · '-' = 공개 티타임 없음` + (noLive.length?`<br>'·' = 실시간 제공처 없음: ${esc(noLive.join(', '))}`:'');
+}
+function setupDash(){
+  const cities = ['전체','포항','경주','영천'];
+  const dc = document.getElementById('dCity');
+  dc.innerHTML = cities.map(c=>`<button class="chip ${c===DS.city?'on':''}" data-v="${c}">${c}${c==='전체'?'':' ('+D.courses.filter(x=>x.city===c).length+')'}</button>`).join('');
+  dc.onclick = e => { const b=e.target.closest('button'); if(!b) return; DS.city=b.dataset.v; [...dc.children].forEach(x=>x.classList.toggle('on',x===b)); renderDash(); };
+  document.getElementById('dDate').onclick = e => { const b=e.target.closest('button'); if(!b) return; DS.date=b.dataset.v; renderDash(); };
+  document.getElementById('tabs').onclick = e => { const b=e.target.closest('button'); if(!b) return; setTab(b.dataset.v); };
+  renderDash();
+}
+
+function setup(){
+  document.getElementById('upd').textContent = `데이터 갱신: ${kst(D.meta.generated_at)}` + (D.live?` · 실시간 수집: ${kst(D.live.fetched_at)}`:'');
+  const cities = ['전체','포항','경주','영천'];
+  const cr = document.getElementById('cityRow');
+  cr.innerHTML = cities.map(c=>`<button class="chip ${c===S.city?'on':''}" data-v="${c}">${c}${c==='전체'?'':' ('+D.courses.filter(x=>x.city===c).length+')'}</button>`).join('');
+  cr.onclick = e => { const b=e.target.closest('button'); if(!b) return; S.city=b.dataset.v; [...cr.children].forEach(x=>x.classList.toggle('on',x===b)); render(); };
+  const segs = (id,key,after) => { const el=document.getElementById(id); el.onclick = e => { const b=e.target.closest('button'); if(!b) return; S[key]=b.dataset.v; [...el.children].forEach(x=>x.classList.toggle('on',x===b)); after&&after(); render(); }; };
+  segs('daySeg','day');
+  segs('modeSeg','mode',()=>{ document.getElementById('dateRow').style.display = S.mode==='live'?'flex':'none'; document.getElementById('daySeg').style.display = S.mode==='live'?'none':'inline-flex'; });
+  document.getElementById('sort').onchange = e => { S.sort=e.target.value; render(); };
+  const dates = D.live?.dates || [];
+  if(dates.length){
+    S.date = dates[Math.min(1,dates.length-1)].date;
+    const dr = document.getElementById('dateRow');
+    dr.innerHTML = '<span class="lbl">날짜</span>' + dates.map(d=>`<button class="chip date ${d.weekend?'we':''} ${d.date===S.date?'on':''}" data-v="${d.date}">${esc(d.label)}</button>`).join('');
+    dr.onclick = e => { const b=e.target.closest('button'); if(!b) return; S.date=b.dataset.v; [...dr.querySelectorAll('button')].forEach(x=>x.classList.toggle('on',x===b)); render(); };
+  } else {
+    document.querySelector('#modeSeg [data-v=live]').disabled = true;
+  }
+  document.getElementById('foot').innerHTML = `
+    <h3>데이터 안내</h3>
+    ${(D.meta.notes||[]).map(n=>`• ${esc(n)}`).join('<br>')}
+    <br>• 골프장 목록: ${esc(D.meta.course_list_source)}
+    <br>• 공식 요금 최초 검증: ${esc(kst(D.meta.verified_at))}
+    <h3>상태 표시</h3>
+    <b style="color:var(--ok)">공식 요금 확인</b>: 공식 홈페이지 요금표에서 직접 확인 · <b style="color:var(--warn)">게시표 확인 필요</b>: 게시 기간이 지났거나 불분명 · <b style="color:var(--bad)">확인 필요</b>: 공식 요금표를 확인하지 못함(전화·홈페이지로 확인하세요)
+    <h3>주의</h3>
+    실제 결제 금액은 예약 경로, 인원, 시간대, 이벤트, 공휴일 여부에 따라 달라질 수 있습니다. 예약 전 반드시 골프장에 확인하세요.`;
+  render();
+  setupDash();
+}
+
+async function boot(){
+  if(PREFER_JSON){
+    try{ const r = await fetch('data.json?t='+Date.now(), {cache:'no-store'}); if(r.ok){ D = await r.json(); } }catch(e){}
+  }
+  if(!D) D = EMBEDDED;
+  if(!D){ document.getElementById('list').innerHTML='<div class="empty">데이터를 불러오지 못했습니다.</div>'; return; }
+  setup();
+}
+boot();
+</script>
+</body>
+</html>
