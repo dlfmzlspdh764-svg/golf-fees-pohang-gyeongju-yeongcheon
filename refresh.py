@@ -34,6 +34,7 @@ OUT_JSON = os.path.join(HERE, "data.json")
 TEMPLATE = os.path.join(HERE, "app_template.html")
 OUT_STANDALONE = os.path.join(HERE, "golf-fees.html")
 OUT_INDEX = os.path.join(HERE, "index.html")
+OUT_TT = os.path.join(HERE, "teetimes.json")
 
 UA = ("Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/128.0 Mobile Safari/537.36 golf-fee-app/1.0")
@@ -69,6 +70,18 @@ def part_of(hhmm):
     return "1부" if h < 10 else ("2부" if h < 15 else "3부")
 
 
+def holes_of(t):
+    """18 / 9 / 99(9홀x2=18홀) / 0(표기 불일치: 코스명은 9홀인데 9홀 상품 표시가 없음)"""
+    if t.get("is_9h") == "Y":
+        return 9
+    if t.get("is_9h2") == "Y":
+        return 99
+    cn = html.unescape(t.get("course_name") or "")
+    if re.search(r"9\s*홀", cn) and not re.search(r"18\s*홀|[xX×]\s*2", cn):
+        return 0
+    return 18
+
+
 def ts_day(seq, day):
     url = f"{TS_API}/booking/getTeeTimeListbyGolfclub"
     r = S.get(url, params={"golfclub_seq": seq, "roundDay": day, "orderType": ""},
@@ -83,6 +96,8 @@ def ts_day(seq, day):
         if not cost:
             continue
         tm = t.get("teetime_time", "")
+        if holes_of(t) == 0:  # 18홀/9홀 판단 불가 -> 최저가 계산에서 제외
+            continue
         if t.get("is_9h") == "Y":
             res["min9"] = cost if res["min9"] is None else min(res["min9"], cost)
             continue
@@ -91,6 +106,7 @@ def ts_day(seq, day):
         p = part_of(tm) if tm else "기타"
         res["parts"][p] = cost if p not in res["parts"] else min(res["parts"][p], cost)
     res["count18"] = sum(1 for t in lst if t.get("is_9h") != "Y")
+    res["_rows"] = lst
     return res
 
 
@@ -104,6 +120,7 @@ def collect_live(courses, days):
         date_meta.append({"date": ds, "label": f"{d.month}/{d.day}({WD[d.weekday()]})",
                           "weekend": d.weekday() >= 5 or ds in hol, "holiday": ds in hol})
     live = {}
+    tt = TTBuilder()
     for c in courses:
         seq = c.get("teescanner_seq")
         if not seq:
@@ -111,7 +128,11 @@ def collect_live(courses, days):
         per = {}
         for dm in date_meta:
             try:
-                per[dm["date"]] = ts_day(seq, dm["date"])
+                v = ts_day(seq, dm["date"])
+                rows = v.pop("_rows", [])
+                if rows:
+                    tt.add(c["id"], dm["date"], rows)
+                per[dm["date"]] = v
             except Exception as e:
                 per[dm["date"]] = {"error": str(e)[:120]}
             time.sleep(DELAY)
@@ -119,8 +140,53 @@ def collect_live(courses, days):
                          "days": per}
         mins = [v["min18"] for v in per.values() if v.get("min18")]
         log(f"티스캐너 {c['name']}: {len(mins)}/{len(per)}일 가격 확인, 최저 {min(mins) if mins else '-'}")
-    return {"source": "골프존 티스캐너 공개 티타임 목록", "fetched_at": now_kst().isoformat(timespec="seconds"),
-            "dates": date_meta, "courses": live}
+    fetched = now_kst().isoformat(timespec="seconds")
+    return ({"source": "골프존 티스캐너 공개 티타임 목록", "fetched_at": fetched,
+             "dates": date_meta, "courses": live}, tt.out(fetched, date_meta))
+
+
+class TTBuilder:
+    """티타임 개별 목록을 문자열 사전 + 배열로 압축 (teetimes.json)
+    행 = [시각, 1인 그린피, 할인 전 금액(같으면 0), 홀(18 / 9 / 99=9홀x2 18홀 / 0=표기 불일치), 코스명#, 캐디#, 안내문#, 상품태그#, 4인 필수(1/0)]
+    #은 dict 의 인덱스, -1 = 없음. 값은 티스캐너 응답 그대로이며 추정치를 넣지 않음."""
+    KEYS = ("course", "caddie", "note", "tag")
+
+    def __init__(self):
+        self.d = {k: [] for k in self.KEYS}
+        self.ix = {k: {} for k in self.KEYS}
+        self.courses = {}
+
+    def i(self, k, v):
+        v = html.unescape((v or "").strip())
+        if not v:
+            return -1
+        if v not in self.ix[k]:
+            self.ix[k][v] = len(self.d[k])
+            self.d[k].append(v)
+        return self.ix[k][v]
+
+    def add(self, cid, date, lst):
+        rows = []
+        for t in lst:
+            cost = t.get("min_cost") or 0
+            tm = (t.get("teetime_time") or "")[:5]
+            if not cost or not tm:
+                continue
+            org = t.get("min_orgin_cost") or 0
+            holes = holes_of(t)
+            rows.append([tm, cost, org if org and org != cost else 0, holes,
+                         self.i("course", t.get("course_name")), self.i("caddie", t.get("caddie_name")),
+                         self.i("note", t.get("benefit_comment")), self.i("tag", t.get("product_tag_nm")),
+                         1 if t.get("is_4p") == "Y" else 0])
+        rows.sort(key=lambda r: (r[0], r[1]))
+        if rows:
+            self.courses.setdefault(cid, {})[date] = rows
+
+    def out(self, fetched, dates):
+        return {"source": "골프존 티스캐너 공개 티타임 목록", "fetched_at": fetched,
+                "dates": [d["date"] for d in dates],
+                "fields": ["time", "price", "orig_price", "holes", "course", "caddie", "note", "tag", "four_required"],
+                "dict": self.d, "courses": self.courses}
 
 
 # ---------------------------------------------------------------- 공식 페이지
@@ -323,13 +389,18 @@ def check_official(courses):
 
 
 # ---------------------------------------------------------------- 출력
-def build_html(data):
+def build_html(data, tt=None):
     tpl = open(TEMPLATE, encoding="utf-8").read()
-    payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
-    open(OUT_STANDALONE, "w", encoding="utf-8").write(tpl.replace("/*__EMBEDDED_DATA__*/null", payload))
-    # index.html: data.json 을 먼저 읽고, 실패하면(파일로 열 때 등) 내장 데이터 사용
+    js = lambda o: json.dumps(o, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    payload = js(data)
+    page = tpl.replace("/*__EMBEDDED_DATA__*/null", payload)
+    # golf-fees.html: 파일 하나로 동작하도록 티타임 상세까지 내장
+    open(OUT_STANDALONE, "w", encoding="utf-8").write(
+        page.replace("/*__EMBEDDED_TEETIMES__*/null", js(tt) if tt else "null"))
+    # index.html: data.json / teetimes.json 을 먼저 읽고(티타임은 '시간대별' 탭에서 지연 로드),
+    # 실패하면(파일로 열 때 등) 내장 요약 데이터 사용
     open(OUT_INDEX, "w", encoding="utf-8").write(
-        tpl.replace("/*__EMBEDDED_DATA__*/null", payload).replace("const PREFER_JSON = false", "const PREFER_JSON = true"))
+        page.replace("const PREFER_JSON = false", "const PREFER_JSON = true"))
 
 
 def main():
@@ -346,22 +417,25 @@ def main():
     if not a.no_official:
         check_official(courses)
     live = prev.get("live")
+    tt = json.load(open(OUT_TT, encoding="utf-8")) if os.path.exists(OUT_TT) else None
     if not a.no_live:
         try:
-            new_live = collect_live(courses, a.days)
+            new_live, new_tt = collect_live(courses, a.days)
             ok_days = sum(1 for cv in new_live["courses"].values()
                           for v in cv["days"].values() if v.get("min18") or v.get("count"))
             if ok_days == 0:
                 log("실시간 수집 결과가 비어 있음(접속 차단 등), 이전 데이터 유지")
             else:
-                live = new_live
+                live, tt = new_live, new_tt
         except Exception as e:
             log("실시간 수집 실패, 이전 데이터 유지:", e)
     data = {"meta": {**base["meta"], "generated_at": now_kst().isoformat(timespec="seconds")},
             "courses": courses, "live": live}
     json.dump(data, open(OUT_JSON, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    if tt:
+        json.dump(tt, open(OUT_TT, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     if os.path.exists(TEMPLATE):
-        build_html(data)
+        build_html(data, tt)
     st = {}
     for c in courses:
         st[c["official"]["status"]] = st.get(c["official"]["status"], 0) + 1

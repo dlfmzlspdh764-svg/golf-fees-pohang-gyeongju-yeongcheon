@@ -86,8 +86,59 @@ footer h3{font-size:13px;color:var(--tx);margin:14px 0 4px}
 .tabs{position:sticky;top:0;z-index:6;display:flex;background:#fff;border-bottom:1px solid var(--ln)}
 .tabs button{flex:1;border:0;background:#fff;padding:12px 4px;font-size:15px;font-weight:600;color:var(--mu);cursor:pointer;border-bottom:3px solid transparent}
 .tabs button.on{color:var(--g);border-bottom-color:var(--g)}
-body.dash .bar,body.dash #listMain{display:none}
-body:not(.dash) #dash{display:none}
+body:not(.v-list) .bar,body:not(.v-list) #listMain{display:none}
+body:not(.v-dash) #dash{display:none}
+body:not(.v-time) #tsv{display:none}
+.tabs button{font-size:14px;padding:12px 2px}
+#tsv{padding:10px 12px 20px;max-width:760px;margin:0 auto}
+.tctl{background:#fff;border:1px solid var(--ln);border-radius:14px;padding:10px 10px 6px;margin-bottom:10px}
+.tctl .row{margin-bottom:4px}
+.tctl select{max-width:150px}
+.hg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+.hc{border-radius:8px;padding:5px 4px;text-align:center;cursor:pointer;line-height:1.3;border:2px solid transparent}
+.hc .h{font-size:11px;color:#35403a;font-weight:600}
+.hc .pv{font-size:13.5px;font-weight:800;color:#10241a}
+.hc .ct{font-size:10.5px;color:#4b5563}
+.hc.none{background:#f1f3f2;cursor:default}.hc.none .pv,.hc.none .h,.hc.none .ct{color:#b0b8b4}
+.hc.inb{border-color:var(--g)}
+.hc.min .pv:after{content:" ★";color:#b45309;font-size:11px}
+.hr{display:grid;grid-template-columns:34px 1fr 64px 40px;align-items:center;gap:6px;font-size:12px;padding:3px 0;cursor:pointer}
+.hr .h{color:#51607a;font-weight:600}
+.hr .bw{background:#f1f3f2;border-radius:4px;height:14px;overflow:hidden}
+.hr .bw i{display:block;height:100%;border-radius:4px;background:#6fbf8e}
+.hr.inb .bw i{background:var(--g)}
+.hr.min .bw i{background:#f5b301}
+.hr .pv{text-align:right;font-weight:700}
+.hr .ct{text-align:right;color:var(--mu);font-size:11px}
+.hr.none{opacity:.45}
+.tg{background:#fff;border:1px solid var(--ln);border-radius:14px;margin-bottom:10px;overflow:hidden}
+.tg>.th{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 12px;border-bottom:1px solid var(--ln);background:#fafcfb}
+.tg>.th .t{font-size:15.5px;font-weight:700;letter-spacing:-.3px;min-width:0}
+.tg>.th .t small{display:block;font-size:11.5px;color:var(--mu);font-weight:400;margin-top:2px}
+.tg>.th .r{text-align:right;flex:0 0 auto}
+.tg>.th .r b{font-size:16px;color:var(--g);font-weight:800}
+.tg>.th .r div{font-size:11px;color:var(--mu)}
+.tt{display:flex;align-items:center;gap:8px;padding:8px 12px;border-top:1px solid #f0f3f1}
+.tt:first-of-type{border-top:0}
+.tt .tm{flex:0 0 46px;font-size:15px;font-weight:700;font-variant-numeric:tabular-nums}
+.tt .tm small{display:block;font-size:10.5px;color:var(--mu);font-weight:500}
+.tt .md{flex:1;min-width:0;font-size:12px;color:#35403a;line-height:1.45}
+.tt .md .cn{font-size:13.5px;font-weight:700;color:var(--tx);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tt .md .x{display:flex;flex-wrap:wrap;gap:3px;margin-top:2px}
+.tt .md .x span{font-size:10.5px;border-radius:5px;padding:1px 5px;background:#eef2ef;color:#35403a}
+.tt .md .x span.nc{background:#fff4e5;color:#b54708}
+.tt .md .x span.h9{background:#eef4ff;color:#1d4ed8}
+.tt .md .x span.sp{background:#fdecea;color:#b42318;font-weight:700}
+.tt .md .nt{font-size:11px;color:var(--mu);margin-top:2px}
+.tt .pr{flex:0 0 auto;text-align:right}
+.tt .pr b{font-size:15.5px;font-weight:800;color:var(--g)}
+.tt .pr s{display:block;font-size:11px;color:#9aa4b2}
+.tt.best .pr b{color:#c2410c}
+.more{display:block;width:100%;border:0;border-top:1px solid var(--ln);background:#fff;color:var(--g2);font-weight:600;font-size:13.5px;padding:10px;cursor:pointer}
+.tgl{display:flex;gap:6px;margin-top:6px}
+.tgl a{flex:1;text-align:center;text-decoration:none;font-size:13px;font-weight:600;border:1px solid var(--g);color:var(--g);border-radius:9px;padding:7px 4px}
+.acts a.tm{background:#eef4ff;color:#1d4ed8;border-color:#c7d7fe}
+.day{cursor:pointer}
 .bar{top:47px}
 #dash{padding:10px 12px 20px;max-width:760px;margin:0 auto}
 .sec{background:#fff;border:1px solid var(--ln);border-radius:14px;padding:12px;margin-bottom:10px}
@@ -139,14 +190,14 @@ table.hm{border-collapse:separate;border-spacing:3px;font-size:12px;min-width:10
 @media (min-width:700px){.fees{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
-<body class="dash">
+<body class="v-dash">
 <header>
   <h1>⛳ 포항·경주·영천 골프장 이용요금</h1>
   <p>공식 홈페이지 요금표 + 예약 사이트 실시간 최저가(날짜별)를 한눈에 비교합니다.</p>
   <span class="upd" id="upd">불러오는 중…</span>
 </header>
 
-<nav class="tabs" id="tabs"><button data-v="dash" class="on">📊 대시보드</button><button data-v="list">⛳ 골프장 목록</button></nav>
+<nav class="tabs" id="tabs"><button data-v="dash" class="on">📊 대시보드</button><button data-v="time">⏰ 시간대별</button><button data-v="list">⛳ 골프장 목록</button></nav>
 
 <section id="dash">
   <div class="kpis" id="kpis"></div>
@@ -157,10 +208,30 @@ table.hm{border-collapse:separate;border-spacing:3px;font-size:12px;min-width:10
   <div class="sec"><h3>🏙️ 지역별 요약 <small id="citySub"></small></h3><div class="cities" id="cities"></div>
     <div class="note">각 골프장의 18홀 최저가 기준 · 단위 원 · 실시간 가격이 있는 골프장만 계산</div></div>
   <div class="sec"><h3>📈 날짜별 전체 최저가 <small>18홀·1인</small></h3><div id="chart"></div></div>
-  <div class="sec"><h3>🗓️ 7일 요금 히트맵 <small>단위 만원 · 칸을 누르면 이동</small></h3>
+  <div class="sec"><h3>🗓️ 7일 요금 히트맵 <small>단위 만원 · 칸을 누르면 시간대별 요금</small></h3>
     <div class="hm-wrap"><table class="hm" id="hm"></table></div>
     <div class="legend">저렴<i></i>비쌈</div>
     <div class="note" id="hmNote"></div></div>
+</section>
+
+<section id="tsv">
+  <div class="tctl">
+    <div class="row" id="tDate"></div>
+    <div class="row" id="tBand"></div>
+    <div class="row" id="tCity"></div>
+    <div class="row">
+      <select id="tCourse" aria-label="골프장"></select>
+      <div class="seg" id="tHoles"><button data-v="18" class="on">18홀</button><button data-v="9">9홀</button><button data-v="all">전체</button></div>
+    </div>
+    <div class="row">
+      <div class="seg" id="tMode"><button data-v="course" class="on">골프장별</button><button data-v="all">전체 타임라인</button></div>
+      <div class="seg" id="tSort"><button data-v="time" class="on">시간순</button><button data-v="price">가격순</button></div>
+    </div>
+  </div>
+  <div class="sec"><h3>🕒 시간대별 최저가 <small id="tHourSub"></small></h3><div id="tHours"></div>
+    <div class="note">시각별 최저 1인 그린피(만원)와 티타임 수 · 초록 = 저렴, 빨강 = 비쌈 · ★ = 최저 · 누르면 그 시간대만 보기</div></div>
+  <div class="summary" id="tSum"></div>
+  <div id="tList"></div>
 </section>
 
 <div class="bar">
@@ -192,6 +263,7 @@ table.hm{border-collapse:separate;border-spacing:3px;font-size:12px;min-width:10
 
 <script>
 const EMBEDDED = /*__EMBEDDED_DATA__*/null;
+const EMBEDDED_TT = /*__EMBEDDED_TEETIMES__*/null;
 const PREFER_JSON = false;
 const S = {city:'전체', mode:'official', day:'weekday', sort:'asc', date:null};
 let D = null;
@@ -276,9 +348,9 @@ function card(c){
     const cells = D.live.dates.map(dm=>{
       const v = l.days[dm.date] || {};
       const p = v.min18 ? (v.min18>=10000? (Math.round(v.min18/1000)/10).toString().replace(/\.0$/,'')+'만' : won(v.min18)) : (v.min9 ? '9홀 '+(v.min9/10000)+'만' : '-');
-      return `<div class="day ${dm.weekend?'we':''} ${v.min18||v.min9?'':'none'} ${S.mode==='live'&&dm.date===S.date?'sel':''}"><div class="d">${esc(dm.label)}</div><div class="p">${p}</div><div class="c">${v.count18?v.count18+'팀':''}</div></div>`;
+      return `<div class="day ${dm.weekend?'we':''} ${v.min18||v.min9?'':'none'} ${S.mode==='live'&&dm.date===S.date?'sel':''}" onclick="goTimes('${esc(c.id)}','${dm.date}')"><div class="d">${esc(dm.label)}</div><div class="p">${p}</div><div class="c">${v.count18?v.count18+'팀':''}</div></div>`;
     }).join('');
-    liveHtml = `<div class="live"><h4>📅 날짜별 실시간 최저가 (1인·18홀) <small>티스캐너 · ${esc(kst(D.live.fetched_at))}</small></h4><div class="days">${cells}</div></div>`;
+    liveHtml = `<div class="live"><h4>📅 날짜별 실시간 최저가 (1인·18홀) <small>티스캐너 · ${esc(kst(D.live.fetched_at))}</small></h4><div class="days">${cells}</div><div class="note" style="margin-top:5px">날짜를 누르면 시간대별 티타임 요금을 볼 수 있어요</div></div>`;
   }
   const warn = [];
   if(o.changed) warn.push(`<div class="warnbox">⚠️ ${esc(o.changed_note)}</div>`);
@@ -297,7 +369,7 @@ function card(c){
     ${warn.join('')}
     ${extra}
     <div class="meta">📍 ${esc(c.address)}<br>공식 요금 출처: <a href="${esc(o.source_url)}" target="_blank" rel="noopener">${esc(o.source_url)}</a><br>기준일: ${esc(kst(o.auto_parsed_at||o.checked_at||D.meta.verified_at))} 확인${l?` · 실시간: <a href="${esc(l.url)}" target="_blank" rel="noopener">티스캐너</a>`:''}</div>
-    <div class="acts">${tel?`<a class="call" href="tel:${tel}">📞 ${esc(c.phone)}</a>`:''}<a class="book" href="${esc(c.booking_url||c.website)}" target="_blank" rel="noopener">예약하기</a><a href="${esc(o.source_url)}" target="_blank" rel="noopener">요금표</a></div>
+    <div class="acts">${tel?`<a class="call" href="tel:${tel}">📞 ${esc(c.phone)}</a>`:''}${l?`<a class="tm" href="javascript:void 0" onclick="goTimes('${esc(c.id)}',S.mode==='live'?S.date:null)">⏰ 시간대별</a>`:''}<a class="book" href="${esc(c.booking_url||c.website)}" target="_blank" rel="noopener">예약하기</a>${l?'':`<a href="${esc(o.source_url)}" target="_blank" rel="noopener">요금표</a>`}</div>
   </article>`;
 }
 
@@ -332,9 +404,10 @@ function goCourse(id, date){
   if(el){ const y = el.getBoundingClientRect().top + window.scrollY - document.querySelector('.bar').offsetHeight - 54; window.scrollTo({top:y}); el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); }
 }
 function setTab(t){
-  document.body.classList.toggle('dash', t==='dash');
+  document.body.classList.remove('v-dash','v-list','v-time'); document.body.classList.add('v-'+t);
   [...document.getElementById('tabs').children].forEach(x=>x.classList.toggle('on',x.dataset.v===t));
   if(t==='dash') window.scrollTo({top:0});
+  if(t==='time'){ window.scrollTo({top:0}); renderTimes(); }
 }
 
 function renderDash(){
@@ -393,7 +466,7 @@ function renderDash(){
   document.getElementById('hm').innerHTML = `<thead><tr><th class="cn">골프장</th>${dates.map(d=>`<th class="${(d.weekend||d.holiday)?'we':''}">${esc(d.label).replace('(','<br>(')}</th>`).join('')}</tr></thead><tbody>` +
     hcs.map(c=>{ const l=liveOf(c);
       return `<tr><td class="cn" onclick="goCourse('${esc(c.id)}')" title="${esc(c.name)}">${cb(c.city)}${esc(c.name)}</td>` + dates.map(d=>{ const v=l&&l.days?l.days[d.date]:null;
-        return v&&v.min18 ? `<td class="v" style="background:${heat(v.min18,lo,hi)}" onclick="goCourse('${esc(c.id)}','${d.date}')" title="${esc(c.name)} ${esc(d.label)} ${won(v.min18)}원">${man(v.min18)}</td>` : `<td class="v na" onclick="goCourse('${esc(c.id)}'${l?`,'${d.date}'`:''})">${l?'-':'·'}</td>`; }).join('') + '</tr>'; }).join('') + '</tbody>';
+        return v&&v.min18 ? `<td class="v" style="background:${heat(v.min18,lo,hi)}" onclick="goTimes('${esc(c.id)}','${d.date}')" title="${esc(c.name)} ${esc(d.label)} ${won(v.min18)}원 · 시간대별 보기">${man(v.min18)}</td>` : `<td class="v na" onclick="${l?`goTimes('${esc(c.id)}','${d.date}')`:`goCourse('${esc(c.id)}')`}">${l?'-':'·'}</td>`; }).join('') + '</tr>'; }).join('') + '</tbody>';
   const noLive = cs.filter(c=>!liveOf(c)).map(c=>c.name);
   document.getElementById('hmNote').innerHTML = `범위 ${vals.length?won(lo)+'~'+won(hi)+'원':'-'} · '-' = 공개 티타임 없음` + (noLive.length?`<br>'·' = 실시간 제공처 없음: ${esc(noLive.join(', '))}`:'');
 }
@@ -405,6 +478,116 @@ function setupDash(){
   document.getElementById('dDate').onclick = e => { const b=e.target.closest('button'); if(!b) return; DS.date=b.dataset.v; renderDash(); };
   document.getElementById('tabs').onclick = e => { const b=e.target.closest('button'); if(!b) return; setTab(b.dataset.v); };
   renderDash();
+}
+
+// ---------------------------------------------------------------- 시간대별
+const TS = {date:null, band:'all', city:'전체', course:'', holes:'18', mode:'course', sort:'time', open:{}, lim:60};
+let TT = null, TTload = null;
+const BANDS = [['all','전체'],['dawn','새벽 ~07시'],['am','오전 07–11'],['pm','오후 11–16'],['eve','야간·후반 16시~']];
+const bandOf = tm => { const h = +tm.slice(0,2); return h<7?'dawn':h<11?'am':h<16?'pm':'eve'; };
+const BANDN = {dawn:'새벽',am:'오전',pm:'오후',eve:'야간'};
+function loadTT(){
+  if(TT) return Promise.resolve(TT);
+  if(!TTload) TTload = (async()=>{
+    if(PREFER_JSON){ try{ const r = await fetch('teetimes.json?t='+Date.now(), {cache:'no-store'}); if(r.ok) TT = await r.json(); }catch(e){} }
+    if(!TT) TT = EMBEDDED_TT;
+    return TT;
+  })();
+  return TTload;
+}
+function ttRows(cid, date){
+  const rs = TT && TT.courses && TT.courses[cid] && TT.courses[cid][date]; if(!rs) return [];
+  const d = TT.dict;
+  return rs.map(r=>({t:r[0], p:r[1], op:r[2], h:r[3], cs:r[4]>=0?d.course[r[4]]:'', cd:r[5]>=0?d.caddie[r[5]]:'', nt:r[6]>=0?d.note[r[6]]:'', tg:r[7]>=0?d.tag[r[7]]:'', f4:r[8]===1, cid}));
+}
+function goTimes(id, date){
+  const c = D.courses.find(x=>x.id===id);
+  if(c){ TS.course = id; TS.city = '전체'; TS.mode = 'course'; TS.open[id] = true; }
+  if(date && (D.live?.dates||[]).some(x=>x.date===date)) TS.date = date;
+  TS.band = 'all'; TS.holes = '18';
+  setTab('time');
+}
+function holesOk(r){ return TS.holes==='all' || (TS.holes==='9' ? r.h===9 : (r.h===18||r.h===99)); }
+function holesTxt(h){ return h===9?'9홀':(h===99?'18홀(9홀×2)':(h===0?'18/9홀 표기 불일치':'18홀')); }
+async function renderTimes(){
+  const dates = D.live?.dates || [];
+  if(!TS.date && dates.length) TS.date = dates[Math.min(1,dates.length-1)].date;
+  const chips = (arr, cur) => arr.map(([v,l,cls])=>`<button class="chip ${cls||''} ${v===cur?'on':''}" data-v="${esc(v)}">${esc(l)}</button>`).join('');
+  document.getElementById('tDate').innerHTML = '<span class="lbl">날짜</span>' + chips(dates.map(d=>[d.date,d.label,'date'+((d.weekend||d.holiday)?' we':'')]), TS.date);
+  document.getElementById('tBand').innerHTML = '<span class="lbl">시간</span>' + chips(BANDS, TS.band);
+  document.getElementById('tCity').innerHTML = '<span class="lbl">지역</span>' + chips(['전체','포항','경주','영천'].map(c=>[c,c]), TS.city);
+  const liveCs = D.courses.filter(c=>liveOf(c) && (TS.city==='전체' || c.city===TS.city));
+  if(TS.course && !liveCs.some(c=>c.id===TS.course)) TS.course = '';
+  document.getElementById('tCourse').innerHTML = `<option value="">전체 골프장 (${liveCs.length})</option>` + liveCs.map(c=>`<option value="${esc(c.id)}" ${c.id===TS.course?'selected':''}>${esc(c.name)}</option>`).join('');
+  [['tHoles','holes'],['tMode','mode'],['tSort','sort']].forEach(([id,k])=>[...document.getElementById(id).children].forEach(b=>b.classList.toggle('on',b.dataset.v===TS[k])));
+  ['tDate','tBand','tCity'].forEach(id=>{ const r=document.getElementById(id), on=r.querySelector('.on'); if(on) r.scrollLeft = Math.max(0, on.offsetLeft - r.clientWidth/2 + on.offsetWidth/2); });
+  const list = document.getElementById('tList');
+  if(!TT){ list.innerHTML = '<div class="empty">티타임 상세를 불러오는 중…</div>'; document.getElementById('tHours').innerHTML=''; await loadTT(); if(!TT){ list.innerHTML='<div class="empty">티타임 상세 데이터를 불러오지 못했습니다.</div>'; return; } }
+  const cs = TS.course ? liveCs.filter(c=>c.id===TS.course) : liveCs;
+  const base = []; cs.forEach(c=>ttRows(c.id, TS.date).forEach(r=>{ if(holesOk(r)) base.push(r); }));
+  const rows = base.filter(r=>TS.band==='all' || bandOf(r.t)===TS.band);
+  const cmap = Object.fromEntries(D.courses.map(c=>[c.id,c]));
+  // 시각별 요약 (시간 필터와 무관, 선택 시간대 강조)
+  const hrs = {}; base.forEach(r=>{ const h=+r.t.slice(0,2); const x = hrs[h] || (hrs[h]={m:null,n:0,who:null}); x.n++; if(x.m===null||r.p<x.m){x.m=r.p;x.who=r.cid;} });
+  const hk = Object.keys(hrs).map(Number); 
+  const hmin = hk.length?Math.min(...hk):0, hmax = hk.length?Math.max(...hk):-1;
+  const ps = hk.map(h=>hrs[h].m), lo = ps.length?Math.min(...ps):0, hi = ps.length?Math.max(...ps):0;
+  let hh = '';
+  for(let h=hmin; h<=hmax; h++){
+    const x = hrs[h]; const b = bandOf(String(h).padStart(2,'0'));
+    if(!x){ hh += `<div class="hc none"><div class="h">${h}시</div><div class="pv">-</div><div class="ct">없음</div></div>`; continue; }
+    hh += `<div class="hc ${TS.band===b?'inb':''} ${x.m===lo?'min':''}" data-b="${b}" style="background:${heat(x.m,lo,hi)}" title="${esc(cmap[x.who]?.name||'')} ${won(x.m)}원"><div class="h">${h}시</div><div class="pv">${man(x.m)}만</div><div class="ct">${x.n}개</div></div>`;
+  }
+  document.getElementById('tHours').innerHTML = hh ? `<div class="hg">${hh}</div>` : '<div class="empty" style="padding:14px 0">해당 조건의 티타임이 없습니다.</div>';
+  const whoTxt = TS.course ? (cmap[TS.course]?.name||'') : (TS.city==='전체'?'전체 골프장':TS.city);
+  document.getElementById('tHourSub').textContent = `${dateLabel(TS.date)} · ${whoTxt} · ${TS.holes==='all'?'전체':TS.holes+'홀'}`;
+  const sorter = TS.sort==='price' ? (a,b)=>a.p-b.p||a.t.localeCompare(b.t) : (a,b)=>a.t.localeCompare(b.t)||a.p-b.p;
+  const minAll = rows.length ? Math.min(...rows.map(r=>r.p)) : null;
+  const ttHtml = (r, showCourse) => {
+    const c = cmap[r.cid];
+    const tags = [];
+    tags.push(`<span class="${r.h===9?'h9':(r.h===0?'nc':'')}">${holesTxt(r.h)}</span>`);
+    if(r.cd) tags.push(`<span class="${/노캐디/.test(r.cd)?'nc':''}">${esc(r.cd)}</span>`);
+    if(r.tg) tags.push(`<span class="sp">${esc(r.tg)}</span>`);
+    if(r.op) tags.push(`<span class="sp">할인</span>`);
+    if(r.f4) tags.push(`<span class="nc">4인 필수</span>`);
+    const nt = r.nt && r.nt!==r.cd ? r.nt.split(/,\s*/).filter(x=>x && x!==r.cd).join(', ') : '';
+    return `<div class="tt ${r.p===minAll?'best':''}"><div class="tm">${esc(r.t)}<small>${BANDN[bandOf(r.t)]}</small></div>
+      <div class="md">${showCourse?`<div class="cn">${cb(c.city)}${esc(c.name)}</div>`:''}${r.cs?`<div>코스 · ${esc(r.cs)}</div>`:''}<div class="x">${tags.join('')}</div>${nt?`<div class="nt">${esc(nt)}</div>`:''}</div>
+      <div class="pr"><b>${won(r.p)}원</b>${r.op?`<s>${won(r.op)}원</s>`:''}</div></div>`;
+  };
+  const bandTxt = TS.band==='all' ? '전체 시간' : BANDS.find(x=>x[0]===TS.band)[1];
+  document.getElementById('tSum').innerHTML = `${esc(dateLabel(TS.date))} · ${esc(bandTxt)} · 티타임 <b>${rows.length}개</b>${minAll?` · 최저 <b>${won(minAll)}원</b>`:''}<br>1인 그린피 기준(티스캐너 공개 가격, 카트·캐디피 별도) · 수집 ${esc(kst(TT.fetched_at))}`;
+  if(!rows.length){ list.innerHTML = '<div class="empty">선택한 조건에 예약 가능한 티타임이 없습니다.</div>'; return; }
+  if(TS.mode==='all'){
+    const all = [...rows].sort(sorter), n = Math.min(all.length, TS.lim);
+    list.innerHTML = `<div class="tg">${all.slice(0,n).map(r=>ttHtml(r,true)).join('')}${all.length>n?`<button class="more" data-more="1">더 보기 (${all.length-n}개 남음)</button>`:''}</div>`;
+    return;
+  }
+  const groups = cs.map(c=>({c, rs:rows.filter(r=>r.cid===c.id).sort(sorter)})).filter(g=>g.rs.length)
+    .sort((a,b)=>Math.min(...a.rs.map(r=>r.p))-Math.min(...b.rs.map(r=>r.p)) || a.c.name.localeCompare(b.c.name,'ko'));
+  const none = cs.filter(c=>!groups.some(g=>g.c.id===c.id)).map(c=>c.name);
+  list.innerHTML = groups.map(g=>{
+    const mn = Math.min(...g.rs.map(r=>r.p)), op = TS.open[g.c.id] || groups.length===1, n = op ? g.rs.length : Math.min(5, g.rs.length);
+    const l = liveOf(g.c);
+    return `<div class="tg"><div class="th"><div class="t">${cb(g.c.city)}${esc(g.c.name)}<small>티타임 ${g.rs.length}개 · ${esc(g.rs[0].t)}~${esc(g.rs[g.rs.length-1].t)}${TS.sort==='price'?' · 가격순':''}</small></div><div class="r"><b>${won(mn)}원~</b><div>최저 1인</div></div></div>
+      ${g.rs.slice(0,n).map(r=>ttHtml(r,false)).join('')}
+      ${g.rs.length>n?`<button class="more" data-open="${esc(g.c.id)}">전체 ${g.rs.length}개 보기</button>`:''}
+      ${op?`<div class="tgl" style="padding:0 12px 10px"><a href="${esc(l.url)}" target="_blank" rel="noopener">티스캐너에서 예약</a><a href="javascript:void 0" onclick="goCourse('${esc(g.c.id)}','${TS.date}')">골프장 정보</a></div>`:''}</div>`;
+  }).join('') + (none.length?`<div class="note">이 조건에 공개 티타임 없음: ${esc(none.join(', '))}</div>`:'');
+}
+function setupTimes(){
+  const on = (id, fn) => document.getElementById(id).addEventListener('click', e => { const b=e.target.closest('button,.hc'); if(!b) return; fn(b); renderTimes(); });
+  on('tDate', b=>{ TS.date=b.dataset.v; TS.lim=60; });
+  on('tBand', b=>{ TS.band=b.dataset.v; TS.lim=60; });
+  on('tCity', b=>{ TS.city=b.dataset.v; TS.course=''; });
+  on('tHoles', b=>{ TS.holes=b.dataset.v; });
+  on('tMode', b=>{ TS.mode=b.dataset.v; TS.lim=60; });
+  on('tSort', b=>{ TS.sort=b.dataset.v; });
+  on('tHours', b=>{ if(b.dataset.b) TS.band = TS.band===b.dataset.b ? 'all' : b.dataset.b; });
+  document.getElementById('tCourse').onchange = e => { TS.course = e.target.value; if(TS.course) TS.open[TS.course]=true; renderTimes(); };
+  document.getElementById('tList').addEventListener('click', e => { const b=e.target.closest('button'); if(!b) return; if(b.dataset.open){ TS.open[b.dataset.open]=true; renderTimes(); } else if(b.dataset.more){ TS.lim+=60; renderTimes(); } });
+  if(PREFER_JSON) setTimeout(loadTT, 800);
 }
 
 function setup(){
@@ -437,6 +620,7 @@ function setup(){
     실제 결제 금액은 예약 경로, 인원, 시간대, 이벤트, 공휴일 여부에 따라 달라질 수 있습니다. 예약 전 반드시 골프장에 확인하세요.`;
   render();
   setupDash();
+  setupTimes();
 }
 
 async function boot(){

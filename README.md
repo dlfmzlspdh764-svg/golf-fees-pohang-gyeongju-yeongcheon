@@ -4,6 +4,7 @@
 
 - 앱 주소: https://dlfmzlspdh764-svg.github.io/golf-fees-pohang-gyeongju-yeongcheon/
 - 자동 갱신: GitHub Actions가 매일 오전 6시(KST)에 `refresh.py`를 실행해 `data.json`과 페이지를 다시 만듭니다.
+- 시간대별 요금: '⏰ 시간대별' 탭에서 날짜·시간대·지역을 고르면 골프장별 티타임과 1인 그린피를 모두 볼 수 있습니다(`teetimes.json`).
 - 수동 갱신: Actions 탭 → "요금 자동 갱신" → Run workflow
 - 휴대폰에서 공유 → "홈 화면에 추가"를 누르면 앱처럼 쓸 수 있습니다.
 
